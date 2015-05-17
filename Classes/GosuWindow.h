@@ -1,12 +1,13 @@
-#import <AppKit/AppKit.h>
+#import <Foundation/Foundation.h>
+#import <CoreGraphics/CoreGraphics.h>
 
 
 @interface GosuWindow : NSObject
 
-// This interface is grouped as in Gosu's Ruby reference:
+// This interface is organised as in Gosu's Ruby reference:
 // https://www.libgosu.org/rdoc/Gosu/Window.html
 
-// Accessors
+// Properties
 @property (nonatomic, copy) NSString *caption;
 @property (nonatomic, readonly, getter=isFullscreen) BOOL fullscreen;
 @property (nonatomic, readonly) NSInteger height;

@@ -6,38 +6,35 @@ module Gosu
     end
     
     # Fix names
-    alias fullscreen? isFullscreen
-    
-    def mouse_x; mouseY; end
-    def mouse_x=(v); setMouseX(v); end
-    
-    alias mouse_y mouseY
-    alias mouse_y= setMouseY
-    alias update_interval updateInterval
+    def fullscreen?; isFullscreen; end
+    def mouse_x; mouseX; end
+    def mouse_x=(x); setMouseX(x); end
+    def mouse_y; mouseY; end
+    def mouse_y=(y); setMouseY(y); end
+    def update_interval; updateInterval; end
     
     # Forward callbacks
     def button_down(id); end
     def buttonDown(id)
       button_down(id)
     end
-    
     def button_up(id); end
     def buttonUp(id)
       button_up(id)
     end
-    
     def needsCursor
       if self.respond_to? :needs_cursor?
         self.needs_cursor?
       else
+        # Preserve default return value
         super
       end
     end
-    
     def needsRedraw
       if self.respond_to? :needs_redraw?
         self.needs_redraw?
       else
+        # Preserve default return value
         super
       end
     end

@@ -52,7 +52,7 @@ namespace
     GOSU_UNIQUE_PTR<Gosu::Window> _window;
 }
 
-#pragma mark - Accessors
+#pragma mark - Properties
 
 - (NSString *)caption
 {
