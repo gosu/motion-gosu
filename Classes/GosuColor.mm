@@ -1,0 +1,122 @@
+#import "GosuColor.h"
+#import <Gosu/Color.hpp>
+
+
+@implementation GosuColor : NSObject
+{
+    Gosu::Color _color;
+}
+
+#pragma mark - Properties
+
+- (NSInteger)alpha
+{
+    return _color.alpha();
+}
+
+- (void)setAlpha:(NSInteger)alpha
+{
+    _color.setAlpha(alpha);
+}
+
+- (NSInteger)red
+{
+    return _color.red();
+}
+
+- (void)setRed:(NSInteger)red
+{
+    _color.setRed(red);
+}
+
+- (NSInteger)green
+{
+    return _color.green();
+}
+
+- (void)setGreen:(NSInteger)green
+{
+    _color.setGreen(green);
+}
+
+- (NSInteger)blue
+{
+    return _color.blue();
+}
+
+- (void)setBlue:(NSInteger)blue
+{
+    _color.setBlue(blue);
+}
+
+- (NSInteger)hue
+{
+    return _color.hue();
+}
+
+- (void)setHue:(NSInteger)hue
+{
+    _color.setHue(hue);
+}
+
+- (NSInteger)saturation
+{
+    return _color.saturation();
+}
+
+- (void)setSaturation:(NSInteger)saturation
+{
+    _color.setSaturation(saturation);
+}
+
+- (NSInteger)value
+{
+    return _color.value();
+}
+
+- (void)setValue:(NSInteger)value
+{
+    _color.setValue(value);
+}
+
+#pragma mark - Creating colors
+
++ (instancetype)colorWithARGB:(NSUInteger)argb
+{
+    GosuColor *color = [self new];
+    color->_color = argb;
+}
+
++ (instancetype)colorWithRGBA:(NSUInteger)rgba;
+{
+    GosuColor *color = [self new];
+    color->_color = Gosu::Color((rgba >> 8) & 0xffffff | (rgba << 24) & 0xff000000);
+}
+
++ (instancetype)colorWithAlpha:(NSInteger)alpha red:(NSInteger)red green:(NSInteger)green blue:(NSInteger)blue;
+{
+    GosuColor *color = [self new];
+    color->_color = Gosu::Color(alpha, red, green, blue);
+}
+
++ (instancetype)colorWithAlpha:(NSInteger)alpha hue:(NSInteger)hue saturation:(NSInteger)saturation value:(NSInteger)value;
+{
+    GosuColor *color = [self new];
+    color->_color = Gosu::Color::fromAHSV(alpha, hue, saturation, value);
+}
+
+#pragma mark - Instance methods
+
+- (NSUInteger)gl
+{
+    return _color.gl();
+}
+
+#pragma mark - Internal helpers
+
+- (NSUInteger)unsignedIntegerValue
+{
+    return _color.argb();
+}
+
+@end
