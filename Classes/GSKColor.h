@@ -1,19 +1,19 @@
 #import <Foundation/Foundation.h>
 
 
-@interface GSKColor : NSObject
+@interface GSKColor : NSObject <NSCopying, NSMutableCopying>
 
 // This interface is organised as in Gosu's Ruby reference:
 // https://www.libgosu.org/rdoc/Gosu/Color.html
 
 // Properties
-@property (nonatomic) NSInteger alpha;
-@property (nonatomic) NSInteger red;
-@property (nonatomic) NSInteger blue;
-@property (nonatomic) NSInteger green;
-@property (nonatomic) CGFloat hue;
-@property (nonatomic) CGFloat saturation;
-@property (nonatomic) CGFloat value;
+@property (nonatomic, readonly) NSInteger alpha;
+@property (nonatomic, readonly) NSInteger red;
+@property (nonatomic, readonly) NSInteger blue;
+@property (nonatomic, readonly) NSInteger green;
+@property (nonatomic, readonly) CGFloat hue;
+@property (nonatomic, readonly) CGFloat saturation;
+@property (nonatomic, readonly) CGFloat value;
 
 // Creating colors
 - (id)initWithARGB:(NSUInteger)argb;

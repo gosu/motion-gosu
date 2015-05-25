@@ -1,4 +1,5 @@
 #import "GSKColor.h"
+#import "GSKMutableColor.h"
 #import <Gosu/Color.hpp>
 
 
@@ -14,19 +15,9 @@
     return _color.alpha();
 }
 
-- (void)setAlpha:(NSInteger)alpha
-{
-    _color.setAlpha(alpha);
-}
-
 - (NSInteger)red
 {
     return _color.red();
-}
-
-- (void)setRed:(NSInteger)red
-{
-    _color.setRed(red);
 }
 
 - (NSInteger)green
@@ -34,19 +25,9 @@
     return _color.green();
 }
 
-- (void)setGreen:(NSInteger)green
-{
-    _color.setGreen(green);
-}
-
 - (NSInteger)blue
 {
     return _color.blue();
-}
-
-- (void)setBlue:(NSInteger)blue
-{
-    _color.setBlue(blue);
 }
 
 - (CGFloat)hue
@@ -54,29 +35,14 @@
     return _color.hue();
 }
 
-- (void)setHue:(CGFloat)hue
-{
-    _color.setHue(hue);
-}
-
 - (CGFloat)saturation
 {
     return _color.saturation();
 }
 
-- (void)setSaturation:(CGFloat)saturation
-{
-    _color.setSaturation(saturation);
-}
-
 - (CGFloat)value
 {
     return _color.value();
-}
-
-- (void)setValue:(CGFloat)value
-{
-    _color.setValue(value);
 }
 
 #pragma mark - Creating colors
@@ -125,6 +91,25 @@
 - (NSUInteger)unsignedIntegerValue
 {
     return _color.argb();
+}
+
+- (Gosu::Color &)underlyingGosuColor
+{
+    return _color;
+}
+
+#pragma mark - NSCopying
+
+- (id)copyWithZone:(NSZone *)zone
+{
+    return [[GSKColor alloc] initWithARGB:_color.argb()];
+}
+
+#pragma mark - NSMutableCopying
+
+- (id)mutableCopyWithZone:(NSZone *)zone
+{
+    return [[GSKMutableColor alloc] initWithARGB:_color.argb()];
 }
 
 @end

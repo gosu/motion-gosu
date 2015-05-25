@@ -65,4 +65,31 @@
               @"getter should return respective byte from constructor");
 }
 
+- (void)testColorMutability
+{
+    GSKColor *color = [[GSKColor alloc] initWithARGB:0x11223344];
+    color = [color copy];
+    
+    XCTAssert(color.green == 0x33,
+              @"-[GSKColor copy] should return same color");
+    
+    XCTAssert([color isMemberOfClass:[GSKColor class]],
+              @"-[GSKColor copy] should return immutable color");
+    XCTAssertThrows([(GSKMutableColor *)color setAlpha:4]);
+    XCTAssertFalse([color respondsToSelector:@selector(setHue:)]);
+    
+    GSKMutableColor *mutableColor = [color mutableCopy];
+    XCTAssert([mutableColor isMemberOfClass:[GSKMutableColor class]],
+              @"-[GSKColor mutableCopy] should return mutable color");
+    mutableColor.alpha = 0x55;
+    XCTAssert(mutableColor.alpha == 0x55,
+              @"GSKMutableColor's setters should work");
+    
+    color = [mutableColor copy];
+    XCTAssert([color isMemberOfClass:[GSKColor class]],
+              @"-[GSKMutableColor copy] should return immutable color");
+    XCTAssert(color.alpha == 0x55,
+              @"-[GSKMutableColor copy] should return same color");
+}
+
 @end
