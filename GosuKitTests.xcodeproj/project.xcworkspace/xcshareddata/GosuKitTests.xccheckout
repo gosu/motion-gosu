@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>8D586A6C-9014-45E9-82C1-AFD8FA2832D3</string>
+	<key>IDESourceControlProjectName</key>
+	<string>GosuKitTests</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>F312BA41B1A50A54FFAC5E356731543EADBC3391</key>
+		<string>github.com:jlnr/motion-gosu.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>GosuKitTests.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>F312BA41B1A50A54FFAC5E356731543EADBC3391</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:jlnr/motion-gosu.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>F312BA41B1A50A54FFAC5E356731543EADBC3391</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F312BA41B1A50A54FFAC5E356731543EADBC3391</string>
+			<key>IDESourceControlWCCName</key>
+			<string>motion-gosu</string>
+		</dict>
+	</array>
+</dict>
+</plist>

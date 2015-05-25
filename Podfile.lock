@@ -1,0 +1,28 @@
+PODS:
+  - Gosu/Gosu (0.0.1):
+    - Gosu/libvorbis
+  - Gosu/libogg (0.0.1)
+  - Gosu/libvorbis (0.0.1):
+    - Gosu/libogg
+  - GosuKit (0.0.1)
+
+DEPENDENCIES:
+  - Gosu/Gosu (from `https://github.com/jlnr/gosu.git`)
+  - GosuKit (from `.`)
+
+EXTERNAL SOURCES:
+  Gosu:
+    :git: https://github.com/jlnr/gosu.git
+  GosuKit:
+    :path: .
+
+CHECKOUT OPTIONS:
+  Gosu:
+    :commit: f1048eca3bb4220f1c9e45742b62e9e63ff88428
+    :git: https://github.com/jlnr/gosu.git
+
+SPEC CHECKSUMS:
+  Gosu: d83aa747c5ab66d4c9fc418fdc9b9af78c35231b
+  GosuKit: 53a208a4cf9f45a967c8d1946e4c40589d72c62d
+
+COCOAPODS: 0.37.1
