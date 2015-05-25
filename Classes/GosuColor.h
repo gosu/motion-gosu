@@ -16,10 +16,9 @@
 @property (nonatomic) NSInteger value;
 
 // Creating colors
-+ (instancetype)colorWithARGB:(NSUInteger)argb;
-+ (instancetype)colorWithRGBA:(NSUInteger)rgba;
-+ (instancetype)colorWithAlpha:(NSInteger)alpha red:(NSInteger)red green:(NSInteger)green blue:(NSInteger)blue;
-+ (instancetype)colorWithAlpha:(NSInteger)alpha hue:(NSInteger)hue saturation:(NSInteger)saturation value:(NSInteger)value;
+- (id)initWithARGB:(NSUInteger)argb;
+- (id)initWithAlpha:(NSInteger)alpha red:(NSInteger)red green:(NSInteger)green blue:(NSInteger)blue;
+- (id)initWithAlpha:(NSInteger)alpha hue:(NSInteger)hue saturation:(NSInteger)saturation value:(NSInteger)value;
 
 // Instance methods
 - (NSUInteger)gl;

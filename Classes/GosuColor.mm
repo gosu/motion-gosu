@@ -81,28 +81,36 @@
 
 #pragma mark - Creating colors
 
-+ (instancetype)colorWithARGB:(NSUInteger)argb
+- (id)initWithARGB:(NSUInteger)argb
 {
-    GosuColor *color = [self new];
-    color->_color = argb;
+    if ((self = [super init])) {
+        _color = argb;
+    }
+    return self;
 }
 
-+ (instancetype)colorWithRGBA:(NSUInteger)rgba;
+- (id)initWithRGBA:(NSUInteger)argb
 {
-    GosuColor *color = [self new];
-    color->_color = Gosu::Color((rgba >> 8) & 0xffffff | (rgba << 24) & 0xff000000);
+    if ((self = [super init])) {
+        _color = Gosu::Color((rgba >> 8) & 0xffffff | (rgba << 24) & 0xff000000);
+    }
+    return self;
 }
 
-+ (instancetype)colorWithAlpha:(NSInteger)alpha red:(NSInteger)red green:(NSInteger)green blue:(NSInteger)blue;
+- (id)initWithAlpha:(NSInteger)alpha red:(NSInteger)red green:(NSInteger)green blue:(NSInteger)blue
 {
-    GosuColor *color = [self new];
-    color->_color = Gosu::Color(alpha, red, green, blue);
+    if ((self = [super init])) {
+        _color = Gosu::Color(alpha, red, green, blue);
+    }
+    return self;
 }
 
-+ (instancetype)colorWithAlpha:(NSInteger)alpha hue:(NSInteger)hue saturation:(NSInteger)saturation value:(NSInteger)value;
+- (id)initWithAlpha:(NSInteger)alpha hue:(NSInteger)hue saturation:(NSInteger)saturation value:(NSInteger)value
 {
-    GosuColor *color = [self new];
-    color->_color = Gosu::Color::fromAHSV(alpha, hue, saturation, value);
+    if ((self = [super init])) {
+        _color = Gosu::Color::fromAHSV(alpha, hue, saturation, value);
+    }
+    return self;
 }
 
 #pragma mark - Instance methods
