@@ -6,3 +6,8 @@
 #import "GSKSampleInstance.h"
 #import "GSKSong.h"
 #import "GSKWindow.h"
+
+#ifdef __cplusplus
+extern "C"
+#endif
+NSString *GSKDefaultFontName();

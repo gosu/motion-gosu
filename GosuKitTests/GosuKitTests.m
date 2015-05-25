@@ -92,4 +92,20 @@
               @"-[GSKMutableColor copy] should return same color");
 }
 
+- (void)testFont
+{
+    GSKFont *font = [[GSKFont alloc] initWithHeight:23 fontName:GSKDefaultFontName() flags:0];
+    XCTAssertEqual(font.name, GSKDefaultFontName(),
+                   @"-[GSKFont name] should return constructor parameter");
+    XCTAssertEqual(font.height, 23,
+                   @"-[GSKFont height] should return constructor parameter");
+    XCTAssertEqual([font textWidth:@"Test" scaleX:0], 0,
+                   @"the width of every text should be 0 with scaleX=0");
+    XCTAssertGreaterThan([font textWidth:@"W" scaleX:1],
+                         [font textWidth:@"I" scaleX:1],
+                         @"W should be wider than I");
+    
+    // TODO: Test setImage:forCharacter:
+}
+
 @end
