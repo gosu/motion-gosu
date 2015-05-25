@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import <XCTest/XCTest.h>
 #import <GosuKit/GosuKit.h>
+#import <unistd.h>
 
 
 @interface GosuKitTests : XCTestCase
@@ -21,6 +22,9 @@
 - (void)setUp
 {
     [super setUp];
+    
+    NSString *resourcePath = [[NSBundle bundleForClass:self.class] resourcePath];
+    chdir([resourcePath UTF8String]);
 }
 
 - (void)tearDown
@@ -105,7 +109,11 @@
                          [font textWidth:@"I" scaleX:1],
                          @"W should be wider than I");
     
-    // TODO: Test setImage:forCharacter:
+    // TODO: Find a way to test draw:...
+    
+    GSKImage *test = [[GSKImage alloc] initWithFilename:@"Test.png" tileable:NO];
+    [font setImage:test forCharacter:'X'];
+    XCTAssertEqual([font textWidth:@"X" scaleX:1], 123);
 }
 
 @end

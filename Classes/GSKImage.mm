@@ -77,4 +77,11 @@
 
 // TODO -toBlob
 
+#pragma mark - Internal helpers
+
+- (Gosu::Image &)underlyingGosuImage
+{
+    return *_image;
+}
+
 @end
