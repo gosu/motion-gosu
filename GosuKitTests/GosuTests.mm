@@ -18,11 +18,17 @@
 
 @implementation GosuTests
 
-- (void)testExample
+- (void)testColor
 {
-    
-    // This is an example of a functional test case.
-    XCTAssert(NSClassFromString(@"GSKImage"), @"Pass");
+    Gosu::Color color(0x12345678);
+    XCTAssert(color.alpha() == 0x12,
+              @"getter should return respective byte from constructor");
+    XCTAssert(color.red() == 0x34,
+              @"getter should return respective byte from constructor");
+    XCTAssert(color.green() == 0x56,
+              @"getter should return respective byte from constructor");
+    XCTAssert(color.blue() == 0x78,
+              @"getter should return respective byte from constructor");
 }
 
 @end

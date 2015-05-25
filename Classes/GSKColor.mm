@@ -49,32 +49,32 @@
     _color.setBlue(blue);
 }
 
-- (NSInteger)hue
+- (CGFloat)hue
 {
     return _color.hue();
 }
 
-- (void)setHue:(NSInteger)hue
+- (void)setHue:(CGFloat)hue
 {
     _color.setHue(hue);
 }
 
-- (NSInteger)saturation
+- (CGFloat)saturation
 {
     return _color.saturation();
 }
 
-- (void)setSaturation:(NSInteger)saturation
+- (void)setSaturation:(CGFloat)saturation
 {
     _color.setSaturation(saturation);
 }
 
-- (NSInteger)value
+- (CGFloat)value
 {
     return _color.value();
 }
 
-- (void)setValue:(NSInteger)value
+- (void)setValue:(CGFloat)value
 {
     _color.setValue(value);
 }
@@ -105,7 +105,7 @@
     return self;
 }
 
-- (id)initWithAlpha:(NSInteger)alpha hue:(NSInteger)hue saturation:(NSInteger)saturation value:(NSInteger)value
+- (id)initWithAlpha:(NSInteger)alpha hue:(CGFloat)hue saturation:(CGFloat)saturation value:(CGFloat)value
 {
     if ((self = [super init])) {
         _color = Gosu::Color::fromAHSV(alpha, hue, saturation, value);
