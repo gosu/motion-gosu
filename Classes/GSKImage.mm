@@ -1,8 +1,8 @@
-#import "GosuImage.h"
+#import "GSKImage.h"
 #import <Gosu/Gosu.hpp>
 
 
-@implementation GosuImage
+@implementation GSKImage
 {
     GOSU_UNIQUE_PTR<Gosu::Image> _image;
 }
@@ -53,19 +53,19 @@
 
 - (void)drawAtX:(CGFloat)x y:(CGFloat)y z:(CGFloat)z scaleX:(CGFloat)scaleX scaleY:(CGFloat)scaleY color:(id)color mode:(NSUInteger)alphaMode
 {
-    _image->draw(x, y, z, scaleX, scaleY, [color unsignedIntegerValue], (Gosu::AlphaMode)alphaMode);
+    _image->draw(x, y, z, scaleX, scaleY, (unsigned)[color unsignedIntegerValue], (Gosu::AlphaMode)alphaMode);
 }
 
 // TODO -drawAsQuad...
 
 - (void)drawRotatedAtX:(CGFloat)x y:(CGFloat)y z:(CGFloat)z angle:(CGFloat)angle centerX:(CGFloat)centerX centerY:(CGFloat)centerY scaleX:(CGFloat)scaleX scaleY:(CGFloat)scaleY color:(id)color mode:(NSUInteger)alphaMode
 {
-    _image->drawRot(x, y, z, angle, centerX, centerY, scaleX, scaleY, [color unsignedIntegerValue], (Gosu::AlphaMode)alphaMode);
+    _image->drawRot(x, y, z, angle, centerX, centerY, scaleX, scaleY, (unsigned)[color unsignedIntegerValue], (Gosu::AlphaMode)alphaMode);
 }
 
 #pragma mark - Instance methods
 
-- (void)insert:(GosuImage *)source x:(NSInteger)x y:(NSInteger)y
+- (void)insert:(GSKImage *)source x:(NSInteger)x y:(NSInteger)y
 {
     _image->getData().insert(source->_image->getData().toBitmap(), x, y);
 }

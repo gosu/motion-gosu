@@ -1,7 +1,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface GosuColor : NSObject
+@interface GSKColor : NSObject
 
 // This interface is organised as in Gosu's Ruby reference:
 // https://www.libgosu.org/rdoc/Gosu/Color.html

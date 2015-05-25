@@ -1,8 +1,8 @@
-#import "GosuColor.h"
+#import "GSKColor.h"
 #import <Gosu/Color.hpp>
 
 
-@implementation GosuColor : NSObject
+@implementation GSKColor
 {
     Gosu::Color _color;
 }
@@ -84,15 +84,15 @@
 - (id)initWithARGB:(NSUInteger)argb
 {
     if ((self = [super init])) {
-        _color = argb;
+        _color = (unsigned)argb;
     }
     return self;
 }
 
-- (id)initWithRGBA:(NSUInteger)argb
+- (id)initWithRGBA:(NSUInteger)rgba
 {
     if ((self = [super init])) {
-        _color = Gosu::Color((rgba >> 8) & 0xffffff | (rgba << 24) & 0xff000000);
+        _color = Gosu::Color(((rgba >> 8) & 0xffffff) | ((rgba << 24) & 0xff000000));
     }
     return self;
 }

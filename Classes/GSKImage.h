@@ -2,7 +2,7 @@
 #import <CoreGraphics/CoreGraphics.h>
 
 
-@interface GosuImage : NSObject
+@interface GSKImage : NSObject
 
 // This interface is organised as in Gosu's Ruby reference:
 // https://www.libgosu.org/rdoc/Gosu/Image.html
@@ -23,7 +23,7 @@
 - (void)drawRotatedAtX:(CGFloat)x y:(CGFloat)y z:(CGFloat)z angle:(CGFloat)angle centerX:(CGFloat)centerX centerY:(CGFloat)centerY scaleX:(CGFloat)scaleX scaleY:(CGFloat)scaleY color:(id)color mode:(NSUInteger)alphaMode;
 
 // Instance methods
-- (void)insert:(GosuImage *)source x:(NSInteger)x y:(NSInteger)y;
+- (void)insert:(GSKImage *)source x:(NSInteger)x y:(NSInteger)y;
 - (void)save:(NSString *)filename;
 // TODO -toBlob
 

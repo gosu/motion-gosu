@@ -1,4 +1,4 @@
-#import "GosuWindow.h"
+#import "GSKWindow.h"
 #import <Gosu/Gosu.hpp>
 
 
@@ -6,10 +6,10 @@ namespace
 {
     class CallbackForwardingWindow : public Gosu::Window
     {
-        GosuWindow *_window;
+        GSKWindow *_window;
         
     public:
-        CallbackForwardingWindow(GosuWindow *window, unsigned width, unsigned height, bool fullscreen)
+        CallbackForwardingWindow(GSKWindow *window, unsigned width, unsigned height, bool fullscreen)
         : _window(window), Gosu::Window(width, height, fullscreen)
         {
         }
@@ -47,7 +47,7 @@ namespace
 }
 
 
-@implementation GosuWindow
+@implementation GSKWindow
 {
     GOSU_UNIQUE_PTR<Gosu::Window> _window;
 }
