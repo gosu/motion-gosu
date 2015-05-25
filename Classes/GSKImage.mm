@@ -67,7 +67,7 @@
 
 - (void)insert:(GSKImage *)source x:(NSInteger)x y:(NSInteger)y
 {
-    _image->getData().insert(source->_image->getData().toBitmap(), x, y);
+    _image->getData().insert(source->_image->getData().toBitmap(), (int)x, (int)y);
 }
 
 - (void)save:(NSString *)filename
@@ -75,7 +75,12 @@
     Gosu::saveImageFile(_image->getData().toBitmap(), Gosu::utf8ToWstring([filename UTF8String]));
 }
 
-// TODO -toBlob
+- (NSData *)imageData
+{
+    Gosu::Bitmap bitmap = _image->getData().toBitmap();
+    std::size_t bytes = bitmap.width() * bitmap.height() * sizeof(Gosu::Color);
+    return [NSData dataWithBytes:bitmap.data() length:bytes];
+}
 
 #pragma mark - Internal helpers
 

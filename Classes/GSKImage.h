@@ -25,6 +25,8 @@
 // Instance methods
 - (void)insert:(GSKImage *)source x:(NSInteger)x y:(NSInteger)y;
 - (void)save:(NSString *)filename;
-// TODO -toBlob
+- (NSData *)imageData; // == toBlob
+
+// TODO - glTexInfo
 
 @end

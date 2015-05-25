@@ -111,9 +111,34 @@
     
     // TODO: Find a way to test draw:...
     
-    GSKImage *test = [[GSKImage alloc] initWithFilename:@"Test.png" tileable:NO];
-    [font setImage:test forCharacter:'X'];
+    GSKImage *image = [[GSKImage alloc] initWithFilename:@"Test.png" tileable:NO];
+    [font setImage:image forCharacter:'X'];
     XCTAssertEqual([font textWidth:@"X" scaleX:1], 123);
+}
+
+- (void)testImageFile
+{
+    GSKImage *image = [[GSKImage alloc] initWithFilename:@"Test.png" tileable:NO];
+    XCTAssertEqual(image.width, 123,
+                   @"should load image with correct size");
+    XCTAssertEqual(image.height, 123,
+                   @"should load image with correct size");
+    
+    NSData *data = [image imageData];
+    unsigned char *pixels = (unsigned char *)[data bytes];
+    // Alpha value of first row should be == 0.
+    for (NSInteger i = 0; i < image.width; i += 20) {
+        XCTAssertEqual(pixels[i * 4 + 3], 0x00);
+    }
+    
+    [image insert:image x:-10 y:-10];
+    [image insert:image x:10 y:-10];
+    NSData *modifiedData = [image imageData];
+    unsigned char *modifiedPixels = (unsigned char *)[modifiedData bytes];
+    // Alpha value of first row should be != 0 now that we have inserted the image into itself.
+    for (NSInteger i = 0; i < image.width; i += 20) {
+        XCTAssertNotEqual(modifiedPixels[i * 4 + 3], 0x00);
+    }
 }
 
 @end
