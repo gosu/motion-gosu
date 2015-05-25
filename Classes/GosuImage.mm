@@ -41,6 +41,8 @@
 
 - (id)initWithFilename:(NSString *)filename tileable:(BOOL)tileable
 {
+    NSParameterAssert(filename);
+    
     if ((self = [super init])) {
         _image.reset(new Gosu::Image(Gosu::utf8ToWstring([filename UTF8String]), tileable ? Gosu::ifTileable : 0));
     }

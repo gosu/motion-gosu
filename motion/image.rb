@@ -2,8 +2,8 @@ module Gosu
   class Image < GosuImage
     # Fix argument lists
     def initialize(filename, flags = {})
-      filename = NSBundle.mainBundle.pathForResource(filename, ofType: nil)
-      initWithFilename(filename, tileable: flags[:tileable])
+      resource = NSBundle.mainBundle.pathForResource(filename, ofType: nil)
+      initWithFilename(resource || filename, tileable: flags[:tileable])
     end
     # TODO: Support for mode
     def draw(x, y, z, scale_x = 1, scale_y = 1, color = 0xff_ffffff)
