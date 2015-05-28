@@ -175,4 +175,14 @@ static NSString *kBMPTempFilename = @"/tmp/GosuKitTests-Test.bmp";
     XCTAssertEqual(anotherImage.height, 123 / 3);
 }
 
+- (void)testWindow
+{
+    GSKWindow *window = [[GSKWindow alloc] initWithWidth:34567 height:23456 fullscreen:NO];
+    XCTAssertEqual(window.width, 34567);
+    XCTAssertEqual(window.height, 23456);
+    XCTAssertEqual(window.fullscreen, NO);
+    window.caption = @"Jüst Testÿng 🎈 哈哈";
+    XCTAssertEqualObjects(window.caption, @"Jüst Testÿng 🎈 哈哈");
+}
+
 @end
