@@ -47,8 +47,17 @@
 
 + (NSArray *)imagesFromTiles:(NSString *)filename tileWidth:(NSInteger)tileWidth tileHeight:(NSInteger)tileHeight tileable:(BOOL)tileable
 {
-    // TODO
-    return nil;
+    NSParameterAssert(filename);
+    
+    std::vector<Gosu::Image> tiles = Gosu::loadTiles(Gosu::utf8ToWstring([filename UTF8String]), (int)tileWidth, (int)tileHeight);
+    
+    NSMutableArray *mutableTiles = [NSMutableArray new];
+    for (Gosu::Image &tile : tiles) {
+        GSKImage *image = [self new];
+        image->_image.reset(new Gosu::Image(tile));
+        [mutableTiles addObject:image];
+    }
+    return [mutableTiles copy];
 }
 
 - (id)initWithFilename:(NSString *)filename tileable:(BOOL)tileable

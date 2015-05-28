@@ -164,4 +164,15 @@ static NSString *kBMPTempFilename = @"/tmp/GosuKitTests-Test.bmp";
     XCTAssertEqual((multilineImage.height + 13) % (23 + 13), 0);
 }
 
+- (void)testImageFromTiles
+{
+    NSArray *images = [GSKImage imagesFromTiles:@"Test.png" tileWidth:61 tileHeight:-3 tileable:NO];
+    XCTAssertEqual([images count], 6);
+    
+    GSKImage *oneImage = images[1];
+    XCTAssertEqual(oneImage.width, 61);
+    GSKImage *anotherImage = images[2];
+    XCTAssertEqual(anotherImage.height, 123 / 3);
+}
+
 @end
