@@ -192,6 +192,31 @@ static NSString *kBMPTempFilename = @"/tmp/GosuKitTests-Test.bmp";
                    @"SampleInstance should stop playing immediately after stopping it");
 }
 
+- (void)testSong
+{
+    XCTAssertEqual([GSKSong currentSong], nil);
+    
+    GSKSong *song1 = [[GSKSong alloc] initWithFilename:@"jingle_bells.mp3"];
+    XCTAssertFalse(song1.playing);
+    
+    GSKSong *song2 = [[GSKSong alloc] initWithFilename:@"jingle_bells.ogg"];
+    XCTAssertFalse(song2.paused);
+    
+    [song1 play:NO];
+    XCTAssert(song1.playing);
+    XCTAssertEqual([GSKSong currentSong], song1);
+    
+    [song2 play:YES];
+    XCTAssertFalse(song1.playing);
+    XCTAssert(song2.playing);
+    XCTAssertEqual([GSKSong currentSong], song2);
+    
+    [song2 stop];
+    XCTAssertFalse(song1.playing);
+    XCTAssertFalse(song2.playing);
+    XCTAssertEqual([GSKSong currentSong], nil);
+}
+
 - (void)testWindow
 {
     GSKWindow *window = [[GSKWindow alloc] initWithWidth:34567 height:23456 fullscreen:NO];

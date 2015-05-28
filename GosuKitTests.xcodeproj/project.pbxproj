@@ -12,6 +12,8 @@
 		D430CFF61B1353B8004DC04F /* GosuTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = D430CFF51B1353B8004DC04F /* GosuTests.mm */; };
 		D430CFFB1B13B31A004DC04F /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = D430CFFA1B13B31A004DC04F /* test.png */; };
 		D4E56EA71B17AC63006F7572 /* beep.wav in Resources */ = {isa = PBXBuildFile; fileRef = D4E56EA41B17AC63006F7572 /* beep.wav */; };
+		D4E56EA81B17AC63006F7572 /* jingle_bells.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D4E56EA51B17AC63006F7572 /* jingle_bells.mp3 */; };
+		D4E56EA91B17AC63006F7572 /* jingle_bells.ogg in Resources */ = {isa = PBXBuildFile; fileRef = D4E56EA61B17AC63006F7572 /* jingle_bells.ogg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +25,8 @@
 		D430CFF51B1353B8004DC04F /* GosuTests.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GosuTests.mm; sourceTree = "<group>"; };
 		D430CFFA1B13B31A004DC04F /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
 		D4E56EA41B17AC63006F7572 /* beep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = beep.wav; sourceTree = "<group>"; };
+		D4E56EA51B17AC63006F7572 /* jingle_bells.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = jingle_bells.mp3; sourceTree = "<group>"; };
+		D4E56EA61B17AC63006F7572 /* jingle_bells.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = jingle_bells.ogg; sourceTree = "<group>"; };
 		FD7B9FC7B899EFEE4EFAFECA /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -88,6 +92,8 @@
 			children = (
 				D4E56EA41B17AC63006F7572 /* beep.wav */,
 				D430CFEA1B134A87004DC04F /* Info.plist */,
+				D4E56EA51B17AC63006F7572 /* jingle_bells.mp3 */,
+				D4E56EA61B17AC63006F7572 /* jingle_bells.ogg */,
 				D430CFFA1B13B31A004DC04F /* test.png */,
 			);
 			name = "Supporting Files";
@@ -154,7 +160,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4E56EA71B17AC63006F7572 /* beep.wav in Resources */,
+				D4E56EA91B17AC63006F7572 /* jingle_bells.ogg in Resources */,
 				D430CFFB1B13B31A004DC04F /* test.png in Resources */,
+				D4E56EA81B17AC63006F7572 /* jingle_bells.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
