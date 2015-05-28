@@ -156,7 +156,40 @@ static NSString *kBMPTempFilename = @"/tmp/GosuKitTests-Test.bmp";
 
 - (void)testSample
 {
+    GSKSample *sample = [[GSKSample alloc] initWithFilename:@"beep.wav"];
+    XCTAssert(sample,
+              @"should be able to load sample from relative filename");
     
+    GSKSampleInstance *instance = [sample playWithVolume:0.1 speed:3 loop:NO];
+    
+    XCTAssert([instance isPlaying],
+              @"SampleInstance should be 'playing' after creation");
+    XCTAssertFalse([instance isPaused],
+              @"SampleInstance should not be 'paused' after creation");
+    
+    [instance pause];
+    XCTAssertFalse(instance.playing);
+    XCTAssert(instance.paused);
+    [instance resume];
+    XCTAssert(instance.playing);
+    XCTAssertFalse(instance.paused);
+    
+    sleep(1);
+    
+    XCTAssertFalse([instance isPlaying],
+              @"SampleInstance should not be 'playing' anymore after one second");
+    XCTAssertFalse([instance isPaused],
+                   @"SampleInstance should not be 'paused' after playing");
+    
+    instance = [sample playWithPan:0 volume:0.1 speed:0.1 loop:YES];
+    
+    sleep(1);
+    
+    XCTAssert([instance isPlaying],
+                   @"SampleInstance should still be 'playing' because of looping");
+    [instance stop];
+    XCTAssertFalse([instance isPlaying],
+                   @"SampleInstance should stop playing immediately after stopping it");
 }
 
 - (void)testWindow
