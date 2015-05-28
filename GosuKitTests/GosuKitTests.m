@@ -12,6 +12,9 @@
 #import <unistd.h>
 
 
+static NSString *kBMPTempFilename = @"/tmp/GosuKitTests-Test.bmp";
+
+
 @interface GosuKitTests : XCTestCase
 
 @end
@@ -139,6 +142,15 @@
     for (NSInteger i = 0; i < image.width; i += 20) {
         XCTAssertNotEqual(modifiedPixels[i * 4 + 3], 0x00);
     }
+    
+    [image save:kBMPTempFilename];
+    GSKImage *imageReloadedAsBMP = [[GSKImage alloc] initWithFilename:kBMPTempFilename tileable:YES];
+    NSData *BMPData = [imageReloadedAsBMP imageData];
+    unsigned char *BMPPixels = (unsigned char *)[BMPData bytes];
+    // First pixel should still be overwritten by insert-ed image
+    XCTAssertEqual(BMPPixels[3], 0xff);
+    // Last pixel should still be translucent
+    XCTAssertEqual(BMPPixels[BMPData.length - 1], 0x00);
 }
 
 @end
