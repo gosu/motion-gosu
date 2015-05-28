@@ -100,6 +100,31 @@ static NSString *kBMPTempFilename = @"/tmp/GosuKitTests-Test.bmp";
     XCTAssertEqual([font textWidth:@"X" scaleX:1], 123);
 }
 
+- (void)testGlobalFunctions
+{
+    XCTAssertGreaterThan(GSKAvailableWidth(), GSKAvailableHeight());
+    XCTAssertGreaterThan(GSKScreenWidth(), GSKScreenHeight());
+    
+    float const kAccuracy = 0.1;
+    XCTAssertEqualWithAccuracy(GSKAngle(10, 0, 40, 30), 135, kAccuracy);
+    XCTAssertEqualWithAccuracy(GSKAngleDiff(0, 36000), 0, kAccuracy);
+    XCTAssertEqualWithAccuracy(GSKAngleDiff(0, 45), 45, kAccuracy);
+    XCTAssertEqualWithAccuracy(GSKAngleDiff(350, 10), 20, kAccuracy);
+    
+    XCTAssertEqualWithAccuracy(GSKOffsetX(0, 12345), 0, kAccuracy);
+    XCTAssertEqualWithAccuracy(GSKOffsetY(0, 12345), -12345, kAccuracy);
+    
+    NSInteger idOfC = GSKCharToButtonID('c');
+    XCTAssertNotEqual(idOfC, 0);
+    XCTAssertEqual(GSKButtonIDToChar(idOfC), 'c');
+    
+    XCTAssertGreaterThanOrEqual([GSKLanguage() length], 2);
+    
+    NSInteger ms = GSKMilliseconds();
+    sleep(1);
+    XCTAssertEqualWithAccuracy(GSKMilliseconds() - ms, 1000, 50);
+}
+
 - (void)testImageFile
 {
     GSKImage *image = [[GSKImage alloc] initWithFilename:@"test.png" tileable:NO];
@@ -165,7 +190,7 @@ static NSString *kBMPTempFilename = @"/tmp/GosuKitTests-Test.bmp";
     XCTAssert([instance isPlaying],
               @"SampleInstance should be 'playing' after creation");
     XCTAssertFalse([instance isPaused],
-              @"SampleInstance should not be 'paused' after creation");
+                   @"SampleInstance should not be 'paused' after creation");
     
     [instance pause];
     XCTAssertFalse(instance.playing);
@@ -177,7 +202,7 @@ static NSString *kBMPTempFilename = @"/tmp/GosuKitTests-Test.bmp";
     sleep(1);
     
     XCTAssertFalse([instance isPlaying],
-              @"SampleInstance should not be 'playing' anymore after one second");
+                   @"SampleInstance should not be 'playing' anymore after one second");
     XCTAssertFalse([instance isPaused],
                    @"SampleInstance should not be 'paused' after playing");
     
@@ -186,7 +211,7 @@ static NSString *kBMPTempFilename = @"/tmp/GosuKitTests-Test.bmp";
     sleep(1);
     
     XCTAssert([instance isPlaying],
-                   @"SampleInstance should still be 'playing' because of looping");
+              @"SampleInstance should still be 'playing' because of looping");
     [instance stop];
     XCTAssertFalse([instance isPlaying],
                    @"SampleInstance should stop playing immediately after stopping it");
