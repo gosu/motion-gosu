@@ -137,7 +137,7 @@ namespace
 - (id)initWithWidth:(NSInteger)width height:(NSInteger)height fullscreen:(BOOL)fullscreen
 {
     if ((self = [super init])) {
-        _window.reset(new CallbackForwardingWindow(self, width, height, fullscreen));
+        _window.reset(new CallbackForwardingWindow(self, (unsigned)width, (unsigned)height, fullscreen));
     }
     return self;
 }

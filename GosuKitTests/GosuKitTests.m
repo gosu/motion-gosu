@@ -125,6 +125,25 @@ static NSString *kBMPTempFilename = @"/tmp/GosuKitTests-Test.bmp";
     XCTAssertEqualWithAccuracy(GSKMilliseconds() - ms, 1000, 50);
 }
 
+- (void)testGraphics
+{
+    XCTAssertThrows([GSKGraphics flush],
+                    @"cannot flush outside of rendering/recording");
+    XCTAssertThrows([GSKGraphics performGL:^{}],
+                    @"cannot run OpenGL outside of rendering");
+    CGFloat transform[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5 };
+    XCTAssertThrows([GSKGraphics transform:&transform perform:^{}],
+                    @"cannot transform outside of rendering/recording");
+    
+    GSKImage *image = [GSKGraphics recordWithWidth:100 height:50 perform:^{
+        [GSKGraphics drawLineFromX:0 y:0 color:@0xff112233
+                               toX:100 y:50 color:@0xff332211
+                                 z:0 mode:0];
+    }];
+    XCTAssertEqual(image.width, 100);
+    XCTAssertEqual(image.height, 50);
+}
+
 - (void)testImageFile
 {
     GSKImage *image = [[GSKImage alloc] initWithFilename:@"test.png" tileable:NO];

@@ -105,6 +105,14 @@
 
 #pragma mark - Internal helpers
 
+- (id)initWithGosuImage:(Gosu::Image)image
+{
+    if ((self = [super init])) {
+        _image.reset(new Gosu::Image(image));
+    }
+    return self;
+}
+
 - (Gosu::Image &)underlyingGosuImage
 {
     return *_image;
