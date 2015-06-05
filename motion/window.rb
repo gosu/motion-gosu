@@ -1,5 +1,5 @@
 module Gosu
-  class Window < GosuWindow
+  class Window < GSKWindow
     # Fix argument lists
     def initialize(width, height, flags = {})
       initWithWidth(width, height: height, fullscreen: flags[:fullscreen])

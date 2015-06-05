@@ -1,11 +1,11 @@
 module Gosu
-  class Color < GosuColor
+  class Color < GSKColor
     # Fix argument lists
     def initialize(*args)
       if args.empty?
-        super
+        init
       elsif args.size == 1
-        super.initWithARGB(args[0])
+        initWithARGB(args[0])
       elsif args.size == 3
         initWithAlpha(255, red: args[0], green: args[1], blue: args[2])
       elsif args.size == 4

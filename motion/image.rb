@@ -1,5 +1,5 @@
 module Gosu
-  class Image < GosuImage
+  class Image < GSKImage
     # Fix argument lists
     def initialize(filename, flags = {})
       resource = NSBundle.mainBundle.pathForResource(filename, ofType: nil)
