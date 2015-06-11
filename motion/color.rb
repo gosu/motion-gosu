@@ -1,6 +1,29 @@
 module Gosu
   class Color < GSKColor
-    # Fix argument lists
+    # alpha(), blue(), green(), hue(), red(), saturation(), value() OK
+    
+    def self.argb(*args)
+      new(*args)
+    end
+    
+    def self.from_ahsv(a, h, s, v)
+      alloc.initWithAlpha(a, hue: h, saturation: s, value: v)
+    end
+    
+    def self.from_hsv(h, s, v)
+      alloc.initWithHue(h, saturation: s, value: v)
+    end
+    
+    def self.rgba(*args)
+      if args.size == 4
+        new(args[3], args[0], args[1], args[2])
+      elsif args.size == 1
+        new(*args)
+      else
+        throw ArgumentError, "wrong number of arguments (#{args.size} for 1 or 4)"
+      end
+    end
+    
     def initialize(*args)
       if args.empty?
         init
@@ -12,6 +35,12 @@ module Gosu
         initWithAlpha(args[0], red: args[1], green: args[2], blue: args[3])
       end
     end
+    
+    def dup
+      copy
+    end
+    
+    # gl() OK
     
     def inspect
       "#<Gosu::Color:ARGB=0x%02x_%02x%02x%02x>" % [self.alpha, self.red, self.green, self.blue]
