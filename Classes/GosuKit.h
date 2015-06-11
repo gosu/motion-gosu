@@ -17,30 +17,30 @@ extern "C" {
 
 // Math
 
-CGFloat GSKAngle(CGFloat x1, CGFloat y1, CGFloat x2, CGFloat y2);
-CGFloat GSKAngleDiff(CGFloat angle1, CGFloat angle2);
-CGFloat GSKDistance(CGFloat x1, CGFloat y1, CGFloat x2, CGFloat y2);
-CGFloat GSKOffsetX(CGFloat angle, CGFloat radius);
-CGFloat GSKOffsetY(CGFloat angle, CGFloat radius);
+CGFloat GSKGetAngle(CGFloat x1, CGFloat y1, CGFloat x2, CGFloat y2);
+CGFloat GSKGetAngleDifference(CGFloat angle1, CGFloat angle2);
+CGFloat GSKGetDistance(CGFloat x1, CGFloat y1, CGFloat x2, CGFloat y2);
+CGFloat GSKGetOffsetX(CGFloat angle, CGFloat radius);
+CGFloat GSKGetOffsetY(CGFloat angle, CGFloat radius);
 CGFloat GSKRandom(CGFloat min, CGFloat max);
 
 // Available screen space
     
-NSInteger GSKAvailableHeight();
-NSInteger GSKAvailableWidth();
-NSInteger GSKScreenHeight();
-NSInteger GSKScreenWidth();
+NSInteger GSKGetAvailableHeight();
+NSInteger GSKGetAvailableWidth();
+NSInteger GSKGetScreenHeight();
+NSInteger GSKGetScreenWidth();
 
 // Input
 BOOL GSKIsButtonDown(NSInteger buttonID);
-unichar GSKButtonIDToChar(NSInteger buttonID);
-NSInteger GSKCharToButtonID(unichar c);
+unichar GSKGetCharacterFromButtonID(NSInteger buttonID);
+NSInteger GSKGetButtonIDFromCharacter(unichar c);
 
 // UI
-NSString *GSKDefaultFontName();
-NSInteger GSKFramesPerSecond();
-NSString *GSKLanguage();
-NSInteger GSKMilliseconds();
+NSString *GSKGetDefaultFontName();
+NSInteger GSKGetFramesPerSecond();
+NSString *GSKGetLanguage();
+NSInteger GSKGetMilliseconds();
     
 #ifdef __cplusplus
 } // extern "C"

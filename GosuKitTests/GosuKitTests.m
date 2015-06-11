@@ -84,8 +84,8 @@ static NSString *kBMPTempFilename = @"/tmp/GosuKitTests-Test.bmp";
 
 - (void)testFont
 {
-    GSKFont *font = [[GSKFont alloc] initWithHeight:23 fontName:GSKDefaultFontName() flags:0];
-    XCTAssertEqualObjects(font.name, GSKDefaultFontName());
+    GSKFont *font = [[GSKFont alloc] initWithHeight:23 fontName:GSKGetDefaultFontName() flags:0];
+    XCTAssertEqualObjects(font.name, GSKGetDefaultFontName());
     XCTAssertEqual(font.height, 23);
     XCTAssertEqual([font textWidth:@"Test" scaleX:0], 0,
                    @"the width of every text should be 0 with scaleX=0");
@@ -102,27 +102,27 @@ static NSString *kBMPTempFilename = @"/tmp/GosuKitTests-Test.bmp";
 
 - (void)testGlobalFunctions
 {
-    XCTAssertGreaterThan(GSKAvailableWidth(), GSKAvailableHeight());
-    XCTAssertGreaterThan(GSKScreenWidth(), GSKScreenHeight());
+    XCTAssertGreaterThan(GSKGetAvailableWidth(), GSKGetAvailableHeight());
+    XCTAssertGreaterThan(GSKGetScreenWidth(), GSKGetScreenHeight());
     
     float const kAccuracy = 0.1;
-    XCTAssertEqualWithAccuracy(GSKAngle(10, 0, 40, 30), 135, kAccuracy);
-    XCTAssertEqualWithAccuracy(GSKAngleDiff(0, 36000), 0, kAccuracy);
-    XCTAssertEqualWithAccuracy(GSKAngleDiff(0, 45), 45, kAccuracy);
-    XCTAssertEqualWithAccuracy(GSKAngleDiff(350, 10), 20, kAccuracy);
+    XCTAssertEqualWithAccuracy(GSKGetAngle(10, 0, 40, 30), 135, kAccuracy);
+    XCTAssertEqualWithAccuracy(GSKGetAngleDifference(0, 36000), 0, kAccuracy);
+    XCTAssertEqualWithAccuracy(GSKGetAngleDifference(0, 45), 45, kAccuracy);
+    XCTAssertEqualWithAccuracy(GSKGetAngleDifference(350, 10), 20, kAccuracy);
     
-    XCTAssertEqualWithAccuracy(GSKOffsetX(0, 12345), 0, kAccuracy);
-    XCTAssertEqualWithAccuracy(GSKOffsetY(0, 12345), -12345, kAccuracy);
+    XCTAssertEqualWithAccuracy(GSKGetOffsetX(0, 12345), 0, kAccuracy);
+    XCTAssertEqualWithAccuracy(GSKGetOffsetY(0, 12345), -12345, kAccuracy);
     
-    NSInteger idOfC = GSKCharToButtonID('c');
+    NSInteger idOfC = GSKGetButtonIDFromCharacter('c');
     XCTAssertNotEqual(idOfC, 0);
-    XCTAssertEqual(GSKButtonIDToChar(idOfC), 'c');
+    XCTAssertEqual(GSKGetCharacterFromButtonID(idOfC), 'c');
     
-    XCTAssertGreaterThanOrEqual([GSKLanguage() length], 2);
+    XCTAssertGreaterThanOrEqual([GSKGetLanguage() length], 2);
     
-    NSInteger ms = GSKMilliseconds();
+    NSInteger ms = GSKGetMilliseconds();
     sleep(1);
-    XCTAssertEqualWithAccuracy(GSKMilliseconds() - ms, 1000, 50);
+    XCTAssertEqualWithAccuracy(GSKGetMilliseconds() - ms, 1000, 50);
 }
 
 - (void)testGraphics
@@ -178,10 +178,10 @@ static NSString *kBMPTempFilename = @"/tmp/GosuKitTests-Test.bmp";
 
 - (void)testImageFromText
 {
-    GSKImage *image = [GSKImage imageFromText:@"Hallo\nWelt" fontName:GSKDefaultFontName() lineHeight:17];
+    GSKImage *image = [GSKImage imageFromText:@"Hallo\nWelt" fontName:GSKGetDefaultFontName() lineHeight:17];
     XCTAssertEqual(image.height, 2 * 17);
     
-    GSKImage *multilineImage = [GSKImage imageFromText:@"A a a a a a a a a a a a a a a" fontName::GSKDefaultFontName() lineHeight:23 width:40 spacing:13 align:0];
+    GSKImage *multilineImage = [GSKImage imageFromText:@"A a a a a a a a a a a a a a a" fontName:GSKGetDefaultFontName() lineHeight:23 width:40 spacing:13 align:0];
     XCTAssertEqual(multilineImage.width, 40);
     XCTAssertGreaterThan(multilineImage.height, 23);
     XCTAssertEqual((multilineImage.height + 13) % (23 + 13), 0);

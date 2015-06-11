@@ -35,9 +35,9 @@
 }
 
 + (void)drawQuadWithX:(CGFloat)x1 y:(CGFloat)y1 color:(id)color1
-                  toX:(CGFloat)x2 y:(CGFloat)y2 color:(id)color2
-                  toX:(CGFloat)x3 y:(CGFloat)y3 color:(id)color3
-                  toX:(CGFloat)x4 y:(CGFloat)y4 color:(id)color4
+                    x:(CGFloat)x2 y:(CGFloat)y2 color:(id)color2
+                    x:(CGFloat)x3 y:(CGFloat)y3 color:(id)color3
+                    x:(CGFloat)x4 y:(CGFloat)y4 color:(id)color4
                     z:(CGFloat)z mode:(NSUInteger)alphaMode
 {
     Gosu::Graphics::drawQuad(x1, y1, (unsigned)[color1 unsignedIntegerValue],
@@ -47,9 +47,9 @@
                              z, (Gosu::AlphaMode)alphaMode);
 }
 
-+ (void)drawRectFromX:(CGFloat)x y:(CGFloat)y
-                width:(CGFloat)width height:(CGFloat)height color:(id)color
-                    z:(CGFloat)z mode:(NSUInteger)alphaMode
++ (void)drawRectAtX:(CGFloat)x y:(CGFloat)y
+              width:(CGFloat)width height:(CGFloat)height color:(id)color
+                  z:(CGFloat)z mode:(NSUInteger)alphaMode
 {
     Gosu::Graphics::drawQuad(x, y, (unsigned)[color unsignedIntegerValue],
                              x + width, y, (unsigned)[color unsignedIntegerValue],
@@ -118,11 +118,12 @@
 }
 
 + (void)scaleX:(CGFloat)scaleX y:(CGFloat)scaleY
+       aroundX:(CGFloat)x aroundY:(CGFloat)y
        perform:(void (^)())block
 {
     NSParameterAssert(block);
     
-    Gosu::Graphics::pushTransform(Gosu::scale(scaleX, scaleY));
+    Gosu::Graphics::pushTransform(Gosu::scale(scaleX, scaleY, x, y));
     block();
     Gosu::Graphics::popTransform();
 }
