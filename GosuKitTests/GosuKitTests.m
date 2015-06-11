@@ -178,10 +178,10 @@ static NSString *kBMPTempFilename = @"/tmp/GosuKitTests-Test.bmp";
 
 - (void)testImageFromText
 {
-    GSKImage *image = [GSKImage imageFromText:@"Hallo\nWelt" font:GSKDefaultFontName() lineHeight:17];
+    GSKImage *image = [GSKImage imageFromText:@"Hallo\nWelt" fontName:GSKDefaultFontName() lineHeight:17];
     XCTAssertEqual(image.height, 2 * 17);
     
-    GSKImage *multilineImage = [GSKImage imageFromText:@"A a a a a a a a a a a a a a a" font:GSKDefaultFontName() lineHeight:23 width:40 spacing:13 align:0];
+    GSKImage *multilineImage = [GSKImage imageFromText:@"A a a a a a a a a a a a a a a" fontName::GSKDefaultFontName() lineHeight:23 width:40 spacing:13 align:0];
     XCTAssertEqual(multilineImage.width, 40);
     XCTAssertGreaterThan(multilineImage.height, 23);
     XCTAssertEqual((multilineImage.height + 13) % (23 + 13), 0);

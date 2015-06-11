@@ -6,11 +6,11 @@ module Gosu
 
     def self.from_text(text, line_height, options = {})
       if options[:width]
-        self.imageFromText(text, font: options[:font] || Gosu::default_font_name,
+        self.imageFromText(text, fontName: options[:font] || Gosu::default_font_name,
           lineHeight: line_height, width: options[:width],
           spacing: options[:spacing] || 0, align: TEXT_ALIGN_MAP[options[:align] || :left])
       else
-        self.imageFromText(text, font: options[:font] || Gosu::default_font_name,
+        self.imageFromText(text, fontName: options[:font] || Gosu::default_font_name,
           lineHeight: line_height)
       end
     end

@@ -21,24 +21,24 @@
 
 #pragma mark - Creating and loading images
 
-+ (instancetype)imageFromText:(NSString *)text font:(NSString *)font lineHeight:(NSInteger)lineHeight
++ (instancetype)imageFromText:(NSString *)text fontName:(NSString *)fontName lineHeight:(NSInteger)lineHeight
 {
     NSParameterAssert(text);
-    NSParameterAssert(font);
+    NSParameterAssert(fontName);
     
-    Gosu::Bitmap bitmap = Gosu::createText(Gosu::utf8ToWstring([text UTF8String]), Gosu::utf8ToWstring([font UTF8String]), (unsigned)lineHeight);
+    Gosu::Bitmap bitmap = Gosu::createText(Gosu::utf8ToWstring([text UTF8String]), Gosu::utf8ToWstring([fontName UTF8String]), (unsigned)lineHeight);
     
     GSKImage *image = [self new];
     image->_image.reset(new Gosu::Image(bitmap));
     return image;
 }
 
-+ (instancetype)imageFromText:(NSString *)text font:(NSString *)font lineHeight:(NSInteger)lineHeight width:(NSInteger)width spacing:(NSInteger)spacing align:(NSUInteger)align
++ (instancetype)imageFromText:(NSString *)text fontName:(NSString *)fontName lineHeight:(NSInteger)lineHeight width:(NSInteger)width spacing:(NSInteger)spacing align:(NSUInteger)align
 {
     NSParameterAssert(text);
-    NSParameterAssert(font);
+    NSParameterAssert(fontName);
     
-    Gosu::Bitmap bitmap = Gosu::createText(Gosu::utf8ToWstring([text UTF8String]), Gosu::utf8ToWstring([font UTF8String]), (unsigned)lineHeight, (unsigned)spacing, (unsigned)width, (Gosu::TextAlign)align, 0);
+    Gosu::Bitmap bitmap = Gosu::createText(Gosu::utf8ToWstring([text UTF8String]), Gosu::utf8ToWstring([fontName UTF8String]), (unsigned)lineHeight, (unsigned)spacing, (unsigned)width, (Gosu::TextAlign)align, 0);
     
     GSKImage *image = [self new];
     image->_image.reset(new Gosu::Image(bitmap));

@@ -12,8 +12,8 @@
 @property (nonatomic, readonly) NSInteger width;
 
 // Creating and loading images
-+ (instancetype)imageFromText:(NSString *)text font:(NSString *)font lineHeight:(NSInteger)lineHeight;
-+ (instancetype)imageFromText:(NSString *)text font:(NSString *)font lineHeight:(NSInteger)lineHeight width:(NSInteger)width spacing:(NSInteger)spacing align:(NSUInteger)align;
++ (instancetype)imageFromText:(NSString *)text fontName:(NSString *)fontName lineHeight:(NSInteger)lineHeight;
++ (instancetype)imageFromText:(NSString *)text fontName:(NSString *)fontName lineHeight:(NSInteger)lineHeight width:(NSInteger)width spacing:(NSInteger)spacing align:(NSUInteger)align;
 + (NSArray *)imagesFromTiles:(NSString *)filename tileWidth:(NSInteger)tileWidth tileHeight:(NSInteger)tileHeight tileable:(BOOL)tileable;
 - (id)initWithFilename:(NSString *)filename tileable:(BOOL)tileable;
 
