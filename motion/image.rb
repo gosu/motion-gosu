@@ -16,6 +16,7 @@ module Gosu
     end
     
     def self.load_tiles(source, tile_width, tile_height, options = {})
+      # TODO - check whether this returns GSKImage or Gosu::Image
       imagesFromTiles(source, tile_width, tile_height, options[:tileable])
     end
     
@@ -35,7 +36,7 @@ module Gosu
     
     def draw_rot(x, y, z, angle, center_x = 0.5, center_y = 0.5, scale_x = 1,
         scale_y = 1, color = 0xff_ffffff, mode = :default)
-    
+      
       drawRotatedAtX(x, y: y, z: z, angle: angle, centerX: center_x,
         centerY: center_y, scaleX: scale_x, scaleY: scale_y, color: color,
         mode: ALPHA_MODE_MAP[mode])
