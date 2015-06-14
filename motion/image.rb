@@ -17,7 +17,7 @@ module Gosu
     
     def self.load_tiles(source, tile_width, tile_height, options = {})
       # TODO - check whether this returns GSKImage or Gosu::Image
-      imagesFromTiles(source, tile_width, tile_height, options[:tileable])
+      imagesFromTiles(source, tileWidth: tile_width, tileHeight: tile_height, tileable: options[:tileable])
     end
     
     def initialize(filename, flags = {})
