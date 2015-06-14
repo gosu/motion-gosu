@@ -25,7 +25,7 @@
 - (void)update;
 
 // Instance methods
-- (id)initWithWidth:(NSInteger)width height:(NSInteger)height fullscreen:(BOOL)fullscreen;
+- (id)initWithWidth:(NSInteger)width height:(NSInteger)height fullscreen:(BOOL)fullscreen updateInterval:(NSTimeInterval)updateInterval;
 - (void)show;
 - (void)close;
 

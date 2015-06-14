@@ -9,8 +9,8 @@ namespace
         GSKWindow *_window;
         
     public:
-        CallbackForwardingWindow(GSKWindow *window, unsigned width, unsigned height, bool fullscreen)
-        : _window(window), Gosu::Window(width, height, fullscreen)
+        CallbackForwardingWindow(GSKWindow *window, unsigned width, unsigned height, bool fullscreen, double updateInterval)
+        : _window(window), Gosu::Window(width, height, fullscreen, updateInterval)
         {
         }
         
@@ -134,10 +134,10 @@ namespace
 
 #pragma mark - Instance methods
 
-- (id)initWithWidth:(NSInteger)width height:(NSInteger)height fullscreen:(BOOL)fullscreen
+- (id)initWithWidth:(NSInteger)width height:(NSInteger)height fullscreen:(BOOL)fullscreen updateInterval:(NSTimeInterval)updateInterval
 {
     if ((self = [super init])) {
-        _window.reset(new CallbackForwardingWindow(self, (unsigned)width, (unsigned)height, fullscreen));
+        _window.reset(new CallbackForwardingWindow(self, (unsigned)width, (unsigned)height, fullscreen, updateInterval));
     }
     return self;
 }

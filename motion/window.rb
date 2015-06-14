@@ -49,7 +49,8 @@ module Gosu
     # close() OK
     
     def initialize(width, height, flags = {})
-      initWithWidth(width, height: height, fullscreen: flags[:fullscreen])
+      initWithWidth(width, height: height, fullscreen: flags[:fullscreen],
+        updateInterval: flags[:update_interval] || 16.6666666)
     end
     
     # show() OK
