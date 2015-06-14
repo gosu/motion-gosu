@@ -2,9 +2,6 @@
 #import <CoreGraphics/CoreGraphics.h>
 
 
-@class GSKImage;
-
-
 @interface GSKGraphics : NSObject
 
 + (void)drawLineFromX:(CGFloat)x1 y:(CGFloat)y1 color:(id)color1
@@ -34,9 +31,6 @@
 
 + (void)performGL:(void (^)())block;
 // + (void)scheduleGL:(void (^)())block z:(CGFloat)z;
-
-+ (GSKImage *)recordWithWidth:(NSInteger)width height:(NSInteger)height
-                      perform:(void (^)())block;
 
 + (void)rotateBy:(CGFloat)angle aroundX:(CGFloat)x aroundY:(CGFloat)y
          perform:(void (^)())block;

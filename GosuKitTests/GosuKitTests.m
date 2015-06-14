@@ -134,17 +134,9 @@ static NSString *kBMPTempFilename = @"/tmp/GosuKitTests-Test.bmp";
     CGFloat transform[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5 };
     XCTAssertThrows([GSKGraphics transform:&transform perform:^{}],
                     @"cannot transform outside of rendering/recording");
-    
-    GSKImage *image = [GSKGraphics recordWithWidth:100 height:50 perform:^{
-        [GSKGraphics drawLineFromX:0 y:0 color:@0xff112233
-                               toX:100 y:50 color:@0xff332211
-                                 z:0 mode:0];
-    }];
-    XCTAssertEqual(image.width, 100);
-    XCTAssertEqual(image.height, 50);
 }
 
-- (void)testImageFile
+- (void)testImageFromFile
 {
     GSKImage *image = [[GSKImage alloc] initWithFilename:@"test.png" tileable:NO];
     XCTAssertEqual(image.width, 123);
@@ -196,6 +188,17 @@ static NSString *kBMPTempFilename = @"/tmp/GosuKitTests-Test.bmp";
     XCTAssertEqual(oneImage.width, 61);
     GSKImage *anotherImage = images[2];
     XCTAssertEqual(anotherImage.height, 123 / 3);
+}
+
+- (void)testImageFromMacro
+{
+    GSKImage *image = [GSKImage imageFromMacroWithWidth:100 height:50 record:^{
+        [GSKGraphics drawLineFromX:0   y:0  color:@0xff112233
+                               toX:100 y:50 color:@0xff332211
+                                 z:0 mode:0];
+    }];
+    XCTAssertEqual(image.width, 100);
+    XCTAssertEqual(image.height, 50);
 }
 
 - (void)testSample

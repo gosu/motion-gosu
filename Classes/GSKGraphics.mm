@@ -1,15 +1,6 @@
 #import "GSKGraphics.h"
-#import "GSKImage.h"
 #import <Gosu/Graphics.hpp>
 #import <Gosu/Image.hpp>
-
-
-@interface GSKImage (InternalHelpers)
-
-- (id)initWithGosuImage:(Gosu::Image)image;
-- (Gosu::Image &)underlyingGosuImage;
-
-@end
 
 
 @implementation GSKGraphics
@@ -94,18 +85,6 @@
     Gosu::Graphics::scheduleGL(block, z);
 }
  */
-
-+ (GSKImage *)recordWithWidth:(NSInteger)width height:(NSInteger)height
-                      perform:(void (^)())block
-{
-    NSParameterAssert(block);
-    
-    Gosu::Graphics::beginRecording();
-    block();
-    Gosu::Image image(Gosu::Graphics::endRecording((int)width, (int)height));
-    
-    return [[GSKImage alloc] initWithGosuImage:image];
-}
 
 + (void)rotateBy:(CGFloat)angle aroundX:(CGFloat)x aroundY:(CGFloat)y
          perform:(void (^)())block

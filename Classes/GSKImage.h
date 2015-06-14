@@ -14,6 +14,7 @@
 // Creating and loading images
 + (instancetype)imageFromText:(NSString *)text fontName:(NSString *)fontName lineHeight:(NSInteger)lineHeight;
 + (instancetype)imageFromText:(NSString *)text fontName:(NSString *)fontName lineHeight:(NSInteger)lineHeight width:(NSInteger)width spacing:(NSInteger)spacing align:(NSUInteger)align;
++ (instancetype)imageFromMacroWithWidth:(NSInteger)width height:(NSInteger)height record:(void (^)())block;
 + (NSArray *)imagesFromTiles:(NSString *)filename tileWidth:(NSInteger)tileWidth tileHeight:(NSInteger)tileHeight tileable:(BOOL)tileable;
 - (id)initWithFilename:(NSString *)filename tileable:(BOOL)tileable;
 

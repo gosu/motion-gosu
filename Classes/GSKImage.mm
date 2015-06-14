@@ -45,6 +45,19 @@
     return image;
 }
 
++ (instancetype)imageFromMacroWithWidth:(NSInteger)width height:(NSInteger)height record:(void (^)())block
+{
+    NSParameterAssert(block);
+    
+    Gosu::Graphics::beginRecording();
+    block();
+    Gosu::Image macro(Gosu::Graphics::endRecording((int)width, (int)height));
+    
+    GSKImage *image = [self new];
+    image->_image.reset(new Gosu::Image(macro));
+    return image;
+}
+
 + (NSArray *)imagesFromTiles:(NSString *)filename tileWidth:(NSInteger)tileWidth tileHeight:(NSInteger)tileHeight tileable:(BOOL)tileable
 {
     NSParameterAssert(filename);
@@ -104,14 +117,6 @@
 }
 
 #pragma mark - Internal helpers
-
-- (id)initWithGosuImage:(Gosu::Image)image
-{
-    if ((self = [super init])) {
-        _image.reset(new Gosu::Image(image));
-    }
-    return self;
-}
 
 - (Gosu::Image &)underlyingGosuImage
 {

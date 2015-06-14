@@ -36,8 +36,7 @@ module Gosu
   end
   
   def self.record(width, height, &block)
-    # TODO - this will return GSKImage, not Gosu::Image :( :( :(
-    GSKGraphics.recordWithWidth(width, height: height, perform: block)
+    Gosu::Image.imageFromMacroWithWidth(width, height: height, record: block)
   end
   
   def self.rotate(angle, around_x = 0, around_y = 0, &block)
