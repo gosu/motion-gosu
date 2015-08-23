@@ -5,7 +5,7 @@
 GosuKit is an Objective-C wrapper around the Gosu library (C++). It looks reasonably pretty, and in theory you could use Objective-C or Swift to write Gosu games now:
 
 ```objc
-  GSKImage *myImage = [[GSKImage alloc] initWithFilename:@"media/starfighter.bmp" tileable:NO];
+GSKImage *myImage = [[GSKImage alloc] initWithFilename:@"media/starfighter.bmp" tileable:NO];
 ```
 
 However, GosuKit's public interface is neither awesome nor stable. It is only meant to be used as stepping stone for the other project in this repository:
@@ -15,7 +15,7 @@ However, GosuKit's public interface is neither awesome nor stable. It is only me
 This is a set of Ruby wrapper classes around GosuKit to emulate [Gosu's familiar Ruby interface](https://libgosu.org/rdoc/). So the line above would become:
 
 ```ruby
-  image = Gosu::Image.new("media/starfighter.bmp", tileable: false)
+image = Gosu::Image.new("media/starfighter.bmp", tileable: false)
 ```
 
 With GosuKit and motion-gosu, RubyMotion can be used to compile Ruby/Gosu games for OS X (iOS coming soon, not sure about Android). Submitting these games to the App Store should work just fine...if you can get everything to work.
@@ -49,10 +49,20 @@ Then run `bundle exec rake pod:install` and RubyMotion should set up all the lib
 
 Now you can set up a `Gosu::Window` instead of `NSWindow` in `AppDelegate#applicationDidFinishLaunching`, and `show()` it.
 
-Note: You can drop your media files (PNG, OGG etc.) in the `resources` folder that RubyMotion creates by default, but you will have to `chdir` into the Resources folder if you want to use relative paths like `Gosu::Image.new('player.png')` to load them:
+Note: You can drop your media files (PNG, OGG etc.) in the `resources` folder that RubyMotion creates by default, but you will have to `chdir` into the Resources folder if you want to use relative paths like `Gosu::Image.new('player.png')` to load them.
+
+Note: OS X apps do not quit by default when the window is closed, you have to manually call `NSApplication#stop` to do so.
+
+An example `AppDelegate` class might look like this:
 
 ```ruby
-  Dir.chdir(NSBundle.mainBundle.resourceURL.path)
+class AppDelegate
+  def applicationDidFinishLaunching(notification)
+    Dir.chdir(NSBundle.mainBundle.resourceURL.path)
+    Window.new.show
+    NSApp.stop(nil)
+  end
+end
 ```
 
 ## Beware
