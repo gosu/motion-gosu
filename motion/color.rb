@@ -1,5 +1,5 @@
 module Gosu
-  class Color < GSKColor
+  class Color < GSKMutableColor
     # alpha(), blue(), green(), hue(), red(), saturation(), value() OK
     
     def self.argb(*args)
@@ -37,7 +37,7 @@ module Gosu
     end
     
     def dup
-      copy
+      self.class.rgba(self.gl)
     end
     
     # gl() OK

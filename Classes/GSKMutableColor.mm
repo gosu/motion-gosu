@@ -54,5 +54,4 @@
     [self underlyingGosuColor].setValue(value);
 }
 
-
 @end
