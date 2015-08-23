@@ -85,6 +85,10 @@ module Gosu
     GSKGetButtonIDFromCharacter(char.ord)
   end
   
+  def self.distance(x1, y1, x2, y2)
+    GSKGetDistance(x1, y1, x2, y2)
+  end
+  
   def self.default_font_name
     GSKGetDefaultFontName()
   end
