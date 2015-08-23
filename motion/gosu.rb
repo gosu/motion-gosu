@@ -13,12 +13,12 @@ module Gosu
   end
   
   def self.draw_rect(x, y, width, height, c, z = 0, mode = :default)
-    GSKGraphics.drawRectFromX(x, y: y, width: width, height: height, color: c,
+    GSKGraphics.drawRectAtX(x, y: y, width: width, height: height, color: c,
       z: z, mode: ALPHA_MODE_MAP[mode])
   end
   
   def self.draw_triangle(x1, y1, c1, x2, y2, c2, x3, y3, c3, z = 0, mode = :default)
-    GSKGraphics.drawTriangleWith(x1, y: y1, color: c1, x: x2, y: y2, color: c2,
+    GSKGraphics.drawTriangleWithX(x1, y: y1, color: c1, x: x2, y: y2, color: c2,
       x: x3, y: y3, color: c3,
       z: z, mode: ALPHA_MODE_MAP[mode])
   end
