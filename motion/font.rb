@@ -23,7 +23,7 @@ module Gosu
     end
     
     def initialize(height, options = {})
-      initWithHeight(height, fontName: options[:font] || GSKGetDefaultFontName(), flags: 0)
+      initWithHeight(height, fontName: options[:name] || GSKGetDefaultFontName(), flags: 0)
     end
     
     def text_width(text, scale_x = 1)
