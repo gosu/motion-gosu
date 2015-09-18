@@ -19,9 +19,18 @@
 - (id)initWithFilename:(NSString *)filename tileable:(BOOL)tileable;
 
 // Drawing an image
-- (void)drawAtX:(CGFloat)x y:(CGFloat)y z:(CGFloat)z scaleX:(CGFloat)scaleX scaleY:(CGFloat)scaleY color:(id)color mode:(NSUInteger)alphaMode;
-// TODO -drawAsQuad...
-- (void)drawRotatedAtX:(CGFloat)x y:(CGFloat)y z:(CGFloat)z angle:(CGFloat)angle centerX:(CGFloat)centerX centerY:(CGFloat)centerY scaleX:(CGFloat)scaleX scaleY:(CGFloat)scaleY color:(id)color mode:(NSUInteger)alphaMode;
+- (void)drawAtX:(CGFloat)x y:(CGFloat)y z:(CGFloat)z
+        scaleX:(CGFloat)scaleX scaleY:(CGFloat)scaleY
+        color:(id)color mode:(NSUInteger)alphaMode;
+- (void)drawAsQuadWithX:(CGFloat)x1 y:(CGFloat)y1 color:(id)c1
+                      x:(CGFloat)x2 y:(CGFloat)y2 color:(id)c2
+                      x:(CGFloat)x3 y:(CGFloat)y3 color:(id)c3
+                      x:(CGFloat)x4 y:(CGFloat)y4 color:(id)c4
+                      z:(CGFloat)z mode:(NSUInteger)alphaMode;
+- (void)drawRotatedAtX:(CGFloat)x y:(CGFloat)y z:(CGFloat)z
+        angle:(CGFloat)angle centerX:(CGFloat)centerX centerY:(CGFloat)centerY
+        scaleX:(CGFloat)scaleX scaleY:(CGFloat)scaleY
+        color:(id)color mode:(NSUInteger)alphaMode;
 
 // Instance methods
 - (void)insert:(GSKImage *)source x:(NSInteger)x y:(NSInteger)y;

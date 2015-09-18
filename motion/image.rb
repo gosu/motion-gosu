@@ -32,7 +32,11 @@ module Gosu
         mode: ALPHA_MODE_MAP[mode])
     end
     
-    # TODO draw_as_quad
+    def draw_as_quad(x1, y1, c1, x2, y2, c2, x3, y3, c3, x4, y4, c4, z, mode = :default)
+        
+      drawAsQuadWithX(x1, y: y1, color: c1, x: x2, y: y2, color: c2,
+        x: x3, y: y3, color: c3, x: x4, y: y4, color: c4, z: z, mode: ALPHA_MODE_MAP[mode])
+    end
     
     def draw_rot(x, y, z, angle, center_x = 0.5, center_y = 0.5, scale_x = 1,
         scale_y = 1, color = 0xff_ffffff, mode = :default)

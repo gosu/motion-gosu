@@ -85,14 +85,30 @@
 
 #pragma mark - Drawing an image
 
-- (void)drawAtX:(CGFloat)x y:(CGFloat)y z:(CGFloat)z scaleX:(CGFloat)scaleX scaleY:(CGFloat)scaleY color:(id)color mode:(NSUInteger)alphaMode
+- (void)drawAtX:(CGFloat)x y:(CGFloat)y z:(CGFloat)z
+        scaleX:(CGFloat)scaleX scaleY:(CGFloat)scaleY
+        color:(id)color mode:(NSUInteger)alphaMode
 {
     _image->draw(x, y, z, scaleX, scaleY, (unsigned)[color unsignedIntegerValue], (Gosu::AlphaMode)alphaMode);
 }
 
-// TODO -drawAsQuad...
+- (void)drawAsQuadWithX:(CGFloat)x1 y:(CGFloat)y1 color:(id)c1
+                      x:(CGFloat)x2 y:(CGFloat)y2 color:(id)c2
+                      x:(CGFloat)x3 y:(CGFloat)y3 color:(id)c3
+                      x:(CGFloat)x4 y:(CGFloat)y4 color:(id)c4
+                      z:(CGFloat)z mode:(NSUInteger)alphaMode
+{
+    _image->getData().draw(x1, y1, (unsigned)[c1 unsignedIntegerValue],
+                           x2, y2, (unsigned)[c2 unsignedIntegerValue],
+                           x3, y3, (unsigned)[c3 unsignedIntegerValue],
+                           x4, y4, (unsigned)[c4 unsignedIntegerValue],
+                           z, (Gosu::AlphaMode)alphaMode);
+}
 
-- (void)drawRotatedAtX:(CGFloat)x y:(CGFloat)y z:(CGFloat)z angle:(CGFloat)angle centerX:(CGFloat)centerX centerY:(CGFloat)centerY scaleX:(CGFloat)scaleX scaleY:(CGFloat)scaleY color:(id)color mode:(NSUInteger)alphaMode
+- (void)drawRotatedAtX:(CGFloat)x y:(CGFloat)y z:(CGFloat)z
+        angle:(CGFloat)angle centerX:(CGFloat)centerX centerY:(CGFloat)centerY
+        scaleX:(CGFloat)scaleX scaleY:(CGFloat)scaleY
+        color:(id)color mode:(NSUInteger)alphaMode
 {
     _image->drawRot(x, y, z, angle, centerX, centerY, scaleX, scaleY, (unsigned)[color unsignedIntegerValue], (Gosu::AlphaMode)alphaMode);
 }
