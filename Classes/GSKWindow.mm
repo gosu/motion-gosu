@@ -6,11 +6,11 @@ namespace
 {
     class CallbackForwardingWindow : public Gosu::Window
     {
-        GSKWindow *_window;
+        GSKWindow *const _window;
         
     public:
         CallbackForwardingWindow(GSKWindow *window, unsigned width, unsigned height, bool fullscreen, double updateInterval)
-        : _window(window), Gosu::Window(width, height, fullscreen, updateInterval)
+        : Gosu::Window(width, height, fullscreen, updateInterval), _window(window)
         {
         }
         
@@ -43,6 +43,41 @@ namespace
         {
             [_window update];
         }
+        
+    #if TARGET_IPHONE_SIMULATOR || TARGET_OS_IPHONE
+        void touchBegan(Gosu::Touch touch) override
+        {
+            if (_currentTouch == nullptr) {
+                _currentTouch = touch.id;
+                input().setMousePosition(touch.x, touch.y);
+                buttonDown(Gosu::msLeft);
+            }
+        }
+        
+        void touchMoved(Gosu::Touch touch) override
+        {
+            if (touch.id == _currentTouch) {
+                input().setMousePosition(touch.x, touch.y);
+            }
+        }
+        
+        void touchEnded(Gosu::Touch touch) override
+        {
+            if (touch.id == _currentTouch) {
+                input().setMousePosition(touch.x, touch.y);
+                buttonUp(Gosu::msLeft);
+                _currentTouch = nullptr;
+            }
+        }
+        
+        void touchCancelled(Gosu::Touch touch) override
+        {
+            touchEnded(touch);
+        }
+        
+    private:
+        void *_currentTouch = nullptr;
+    #endif
     };
 }
 
