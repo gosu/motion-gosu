@@ -111,6 +111,7 @@
 				D430CFE21B134A87004DC04F /* Frameworks */,
 				D430CFE31B134A87004DC04F /* Resources */,
 				2304F99ADF6BCB23632FECB8 /* Copy Pods Resources */,
+				911D8DECA0BB9076ED4D63A9 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -127,7 +128,7 @@
 		D430CFCA1B134A87004DC04F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Gosu Contributors";
 				TargetAttributes = {
 					D430CFE41B134A87004DC04F = {
@@ -184,6 +185,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		911D8DECA0BB9076ED4D63A9 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		CFB141E53F7ECAC7A9CD7FD9 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -235,6 +251,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -304,6 +321,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = GosuKitTests/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.libgosu.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -319,6 +337,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = GosuKitTests/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.libgosu.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

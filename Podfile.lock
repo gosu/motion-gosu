@@ -1,9 +1,5 @@
 PODS:
-  - Gosu/Gosu (0.0.1):
-    - Gosu/libvorbis
-  - Gosu/libogg (0.0.1)
-  - Gosu/libvorbis (0.0.1):
-    - Gosu/libogg
+  - Gosu/Gosu (0.10.6)
   - GosuKit (0.0.1)
 
 DEPENDENCIES:
@@ -14,15 +10,15 @@ EXTERNAL SOURCES:
   Gosu:
     :git: https://github.com/jlnr/gosu.git
   GosuKit:
-    :path: .
+    :path: "."
 
 CHECKOUT OPTIONS:
   Gosu:
-    :commit: f1048eca3bb4220f1c9e45742b62e9e63ff88428
+    :commit: d6afb8b1fe0670690cf3694666a467b61f977500
     :git: https://github.com/jlnr/gosu.git
 
 SPEC CHECKSUMS:
-  Gosu: d83aa747c5ab66d4c9fc418fdc9b9af78c35231b
+  Gosu: 47a8efaf95c57a6bec6fa95366714075768f9371
   GosuKit: 53a208a4cf9f45a967c8d1946e4c40589d72c62d
 
-COCOAPODS: 0.37.1
+COCOAPODS: 0.39.0
