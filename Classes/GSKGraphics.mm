@@ -86,8 +86,8 @@
 }
  */
 
-+ (void)rotateBy:(CGFloat)angle aroundX:(CGFloat)x aroundY:(CGFloat)y
-         perform:(void (^)())block
++ (void)rotate:(CGFloat)angle aroundX:(CGFloat)x aroundY:(CGFloat)y
+       perform:(void (^)())block
 {
     NSParameterAssert(block);
     
@@ -122,8 +122,8 @@
     Gosu::Graphics::popTransform();
 }
 
-+ (void)translateBy:(CGFloat)translateX y:(CGFloat)translateY
-            perform:(void (^)())block
++ (void)translateX:(CGFloat)translateX y:(CGFloat)translateY
+           perform:(void (^)())block
 {
     NSParameterAssert(block);
     

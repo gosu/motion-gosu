@@ -54,7 +54,7 @@ module Gosu
   end
   
   def self.translate(x, y, &block)
-    GSKGraphics.translateBy(x, y: y, perform: block)
+    GSKGraphics.translateX(x, y: y, perform: block)
   end
   
   def self.angle(x1, y1, x2, y2)

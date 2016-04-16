@@ -32,14 +32,14 @@
 + (void)performGL:(void (^)())block;
 // + (void)scheduleGL:(void (^)())block z:(CGFloat)z;
 
-+ (void)rotateBy:(CGFloat)angle aroundX:(CGFloat)x aroundY:(CGFloat)y
-         perform:(void (^)())block;
++ (void)rotate:(CGFloat)angle aroundX:(CGFloat)x aroundY:(CGFloat)y
+       perform:(void (^)())block;
 + (void)scaleX:(CGFloat)scaleX y:(CGFloat)scaleY
        aroundX:(CGFloat)x aroundY:(CGFloat)y
        perform:(void (^)())block;
 + (void)transform:(CGFloat(*)[16])matrix
           perform:(void (^)())block;
-+ (void)translateBy:(CGFloat)translateX y:(CGFloat)translateY
-            perform:(void (^)())block;
++ (void)translateX:(CGFloat)translateX y:(CGFloat)translateY
+           perform:(void (^)())block;
 
 @end
