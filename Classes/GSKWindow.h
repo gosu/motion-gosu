@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 #import <CoreGraphics/CoreGraphics.h>
+#import <TargetConditionals.h>
 
 
 @interface GSKWindow : NSObject
@@ -15,6 +16,10 @@
 @property (nonatomic) CGFloat mouseY;
 @property (nonatomic, readonly) NSTimeInterval updateInterval;
 @property (nonatomic, readonly) NSInteger width;
+
+#if TARGET_IPHONE_SIMULATOR || TARGET_OS_IPHONE
+@property (nonatomic, readonly) UIWindow *UIWindow;
+#endif
 
 // Callbacks
 - (void)buttonDown:(NSInteger)buttonID;

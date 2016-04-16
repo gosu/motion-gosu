@@ -104,6 +104,13 @@ namespace
     return _window->graphics().width();
 }
 
+#if TARGET_IPHONE_SIMULATOR || TARGET_OS_IPHONE
+- (UIWindow *)UIWindow
+{
+    return (__bridge UIWindow *)_window->UIWindow();
+}
+#endif
+
 #pragma mark - Callbacks
 
 - (void)buttonDown:(NSInteger)buttonID
