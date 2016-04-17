@@ -1,24 +1,26 @@
 PODS:
+  - Gosu (0.10.6):
+    - Gosu/Gosu (= 0.10.6)
   - Gosu/Gosu (0.10.6)
   - GosuKit (0.0.1)
 
 DEPENDENCIES:
-  - Gosu/Gosu (from `https://github.com/jlnr/gosu.git`)
+  - Gosu (from `https://github.com/gosu/gosu.git`)
   - GosuKit (from `.`)
 
 EXTERNAL SOURCES:
   Gosu:
-    :git: https://github.com/jlnr/gosu.git
+    :git: https://github.com/gosu/gosu.git
   GosuKit:
     :path: "."
 
 CHECKOUT OPTIONS:
   Gosu:
-    :commit: d6afb8b1fe0670690cf3694666a467b61f977500
-    :git: https://github.com/jlnr/gosu.git
+    :commit: e213428647e168625529d25fcb15166b9e9c1ca9
+    :git: https://github.com/gosu/gosu.git
 
 SPEC CHECKSUMS:
-  Gosu: 47a8efaf95c57a6bec6fa95366714075768f9371
-  GosuKit: 53a208a4cf9f45a967c8d1946e4c40589d72c62d
+  Gosu: 22459579c1fab36f067d831489f8ff021ad27928
+  GosuKit: 0865e73fade63c258b2bf727db7a665313adb409
 
 COCOAPODS: 0.39.0

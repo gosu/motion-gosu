@@ -2,8 +2,8 @@ Pod::Spec.new do |s|
   s.name         = "GosuKit"
   s.version      = "0.0.1"
   s.summary      = "2D game development library."
-  s.homepage     = "https://libgosu.org/"
-  s.documentation_url = 'https://libgosu.org/rdoc/'
+  s.homepage     = "https://www.libgosu.org/"
+  s.documentation_url = 'https://github.com/gosu/motion-gosu'
   
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { "Julian Raschke" => "julian@raschke.de" }
