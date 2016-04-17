@@ -60,5 +60,22 @@ module Gosu
     end
     
     # show() OK
+    
+    def touch_began(touch); end
+    def touchBegan(touch)
+      touch_began(touch)
+    end
+    def touch_moved(touch); end
+    def touchMoved(touch)
+      touch_moved(touch)
+    end
+    def touch_ended(touch); end
+    def touchEnded(touch)
+      touch_ended(touch)
+    end
+    def touch_cancelled(touch); end
+    def touchCancelled(touch)
+      touch_cancelled(touch)
+    end
   end
 end
