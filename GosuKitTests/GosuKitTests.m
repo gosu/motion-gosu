@@ -273,6 +273,8 @@ static NSString *kBMPTempFilename = @"/tmp/GosuKitTests-Test.bmp";
     XCTAssertEqual(window.updateInterval, 25);
     window.caption = @"Jüst Testÿng 🎈 哈哈";
     XCTAssertEqualObjects(window.caption, @"Jüst Testÿng 🎈 哈哈");
+    
+    XCTAssertEqualObjects(window.touches, @[]);
 }
 
 @end

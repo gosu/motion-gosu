@@ -3,6 +3,9 @@
 #import <TargetConditionals.h>
 
 
+@class GSKTouch;
+
+
 @interface GSKWindow : NSObject
 
 // This interface is organised as in Gosu's Ruby reference:
@@ -28,6 +31,13 @@
 - (BOOL)needsCursor;
 - (BOOL)needsRedraw;
 - (void)update;
+
+// Callbacks and methods for iOS only
+- (void)touchBegan:(nonnull GSKTouch *)touch;
+- (void)touchMoved:(nonnull GSKTouch *)touch;
+- (void)touchEnded:(nonnull GSKTouch *)touch;
+- (void)touchCancelled:(nonnull GSKTouch *)touch;
+- (nonnull NSArray<GSKTouch *> *)touches;
 
 // Instance methods
 - (id)initWithWidth:(NSInteger)width height:(NSInteger)height fullscreen:(BOOL)fullscreen updateInterval:(NSTimeInterval)updateInterval;

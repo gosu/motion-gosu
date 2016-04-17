@@ -1,5 +1,8 @@
 #import "GSKWindow.h"
+#import "GSKTouch.h"
 #import <Gosu/Gosu.hpp>
+#import <map>
+#import <memory>
 
 
 namespace
@@ -7,6 +10,8 @@ namespace
     class CallbackForwardingWindow : public Gosu::Window
     {
         GSKWindow *const _window;
+        std::map<void *, GSKTouch *> _touchesMap;
+        NSMutableArray<GSKTouch *> *_touchesArray = [NSMutableArray new];
         
     public:
         CallbackForwardingWindow(GSKWindow *window, unsigned width, unsigned height, bool fullscreen, double updateInterval)
@@ -44,47 +49,58 @@ namespace
             [_window update];
         }
         
-    #if TARGET_IPHONE_SIMULATOR || TARGET_OS_IPHONE
         void touchBegan(Gosu::Touch touch) override
         {
-            if (_currentTouch == nullptr) {
-                _currentTouch = touch.id;
-                input().setMousePosition(touch.x, touch.y);
-                buttonDown(Gosu::msLeft);
-            }
+            GSKTouch *touchObject = [GSKTouch new];
+            touchObject.x = touch.x;
+            touchObject.y = touch.y;
+            _touchesMap[touch.id] = touchObject;
+            [_touchesArray addObject:touchObject];
+            [_window touchBegan:touchObject];
         }
         
         void touchMoved(Gosu::Touch touch) override
         {
-            if (touch.id == _currentTouch) {
-                input().setMousePosition(touch.x, touch.y);
+            if (GSKTouch *touchObject = _touchesMap[touch.id]) {
+                touchObject.x = touch.x;
+                touchObject.y = touch.y;
+                [_window touchMoved:touchObject];
             }
         }
         
         void touchEnded(Gosu::Touch touch) override
         {
-            if (touch.id == _currentTouch) {
-                input().setMousePosition(touch.x, touch.y);
-                buttonUp(Gosu::msLeft);
-                _currentTouch = nullptr;
+            if (GSKTouch *touchObject = _touchesMap[touch.id]) {
+                _touchesMap.erase(touch.id);
+                [_touchesArray removeObject:touchObject];
+                touchObject.x = touch.x;
+                touchObject.y = touch.y;
+                [_window touchEnded:touchObject];
             }
         }
         
         void touchCancelled(Gosu::Touch touch) override
         {
-            touchEnded(touch);
+            if (GSKTouch *touchObject = _touchesMap[touch.id]) {
+                _touchesMap.erase(touch.id);
+                [_touchesArray removeObject:touchObject];
+                touchObject.x = touch.x;
+                touchObject.y = touch.y;
+                [_window touchCancelled:touchObject];
+            }
         }
         
-    private:
-        void *_currentTouch = nullptr;
-    #endif
+        NSArray<GSKTouch *> *touches() const
+        {
+            return _touchesArray;
+        }
     };
 }
 
 
 @implementation GSKWindow
 {
-    GOSU_UNIQUE_PTR<Gosu::Window> _window;
+    std::unique_ptr<CallbackForwardingWindow> _window;
 }
 
 #pragma mark - Properties
@@ -172,6 +188,29 @@ namespace
 
 - (void)update
 {
+}
+
+#pragma mark - Callbacks and methods for iOS only
+
+- (void)touchBegan:(nonnull GSKTouch *)touch
+{
+}
+
+- (void)touchMoved:(nonnull GSKTouch *)touch
+{
+}
+
+- (void)touchEnded:(nonnull GSKTouch *)touch
+{
+}
+
+- (void)touchCancelled:(nonnull GSKTouch *)touch
+{
+}
+
+- (nonnull NSArray<GSKTouch *> *)touches;
+{
+    return _window->touches();
 }
 
 #pragma mark - Instance methods
