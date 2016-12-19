@@ -1,5 +1,6 @@
 #import "GSKSong.h"
 #import <Gosu/Gosu.hpp>
+#import <memory>
 
 
 static GSKSong *__weak currentSong = nil;
@@ -7,7 +8,7 @@ static GSKSong *__weak currentSong = nil;
 
 @implementation GSKSong
 {
-    GOSU_UNIQUE_PTR<Gosu::Song> _song;
+    std::unique_ptr<Gosu::Song> _song;
 }
 
 #pragma mark - Class properties

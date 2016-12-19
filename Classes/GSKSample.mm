@@ -1,6 +1,7 @@
 #import "GSKSample.h"
 #import "GSKSampleInstance.h"
 #import <Gosu/Gosu.hpp>
+#import <memory>
 
 
 @interface GSKSampleInstance (InternalHelpers)
@@ -12,7 +13,7 @@
 
 @implementation GSKSample
 {
-    GOSU_UNIQUE_PTR<Gosu::Sample> _sample;
+    std::unique_ptr<Gosu::Sample> _sample;
 }
 
 #pragma mark - Instance methods

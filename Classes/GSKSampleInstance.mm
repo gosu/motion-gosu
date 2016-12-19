@@ -1,10 +1,11 @@
 #import "GSKSampleInstance.h"
 #import <Gosu/Audio.hpp>
+#import <memory>
 
 
 @implementation GSKSampleInstance
 {
-    GOSU_UNIQUE_PTR<Gosu::SampleInstance> _instance;
+    std::unique_ptr<Gosu::SampleInstance> _instance;
 }
 
 #pragma mark - Internal Helpers

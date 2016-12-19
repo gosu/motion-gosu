@@ -1,6 +1,7 @@
 #import "GSKFont.h"
 #import "GSKImage.h"
 #import <Gosu/Gosu.hpp>
+#import <memory>
 
 
 @interface GSKImage (InternalHelpers)
@@ -12,7 +13,7 @@
 
 @implementation GSKFont
 {
-    GOSU_UNIQUE_PTR<Gosu::Font> _font;
+    std::unique_ptr<Gosu::Font> _font;
 }
 
 #pragma mark - Properties

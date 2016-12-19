@@ -1,10 +1,11 @@
 #import "GSKImage.h"
 #import <Gosu/Gosu.hpp>
+#import <memory>
 
 
 @implementation GSKImage
 {
-    GOSU_UNIQUE_PTR<Gosu::Image> _image;
+    std::unique_ptr<Gosu::Image> _image;
 }
 
 #pragma mark - Properties
