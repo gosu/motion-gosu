@@ -10,5 +10,8 @@ Pod::Spec.new do |s|
   
   s.source       = { :git => "https://github.com/gosu/motion-gosu.git" }
   
+  s.osx.deployment_target = '10.7'
+  s.ios.deployment_target = '8.0'
+
   s.source_files = "Classes/*.{h,mm}"
 end

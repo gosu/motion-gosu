@@ -7,18 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		64219525DD88749EDCC72B88 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7B9FC7B899EFEE4EFAFECA /* libPods.a */; };
 		D430CFEC1B134A87004DC04F /* GosuKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D430CFEB1B134A87004DC04F /* GosuKitTests.m */; };
 		D430CFF61B1353B8004DC04F /* GosuTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = D430CFF51B1353B8004DC04F /* GosuTests.mm */; };
 		D430CFFB1B13B31A004DC04F /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = D430CFFA1B13B31A004DC04F /* test.png */; };
 		D4E56EA71B17AC63006F7572 /* beep.wav in Resources */ = {isa = PBXBuildFile; fileRef = D4E56EA41B17AC63006F7572 /* beep.wav */; };
 		D4E56EA81B17AC63006F7572 /* jingle_bells.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D4E56EA51B17AC63006F7572 /* jingle_bells.mp3 */; };
 		D4E56EA91B17AC63006F7572 /* jingle_bells.ogg in Resources */ = {isa = PBXBuildFile; fileRef = D4E56EA61B17AC63006F7572 /* jingle_bells.ogg */; };
+		E8DCA3E063F175FB3CBCB161 /* libPods-GosuKitTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 583349B866678DBB86BBC9DB /* libPods-GosuKitTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2CBAB86C96BC7B80C3E8077A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		8C13761233BDD33B31A084FF /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		583349B866678DBB86BBC9DB /* libPods-GosuKitTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GosuKitTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ADD7594858A08162AADB550F /* Pods-GosuKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GosuKitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GosuKitTests/Pods-GosuKitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D430CFE51B134A87004DC04F /* GosuKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GosuKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D430CFEA1B134A87004DC04F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D430CFEB1B134A87004DC04F /* GosuKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GosuKitTests.m; sourceTree = "<group>"; };
@@ -27,7 +27,7 @@
 		D4E56EA41B17AC63006F7572 /* beep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = beep.wav; sourceTree = "<group>"; };
 		D4E56EA51B17AC63006F7572 /* jingle_bells.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = jingle_bells.mp3; sourceTree = "<group>"; };
 		D4E56EA61B17AC63006F7572 /* jingle_bells.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = jingle_bells.ogg; sourceTree = "<group>"; };
-		FD7B9FC7B899EFEE4EFAFECA /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F43FEDBFC2DAA6FCA9AF5138 /* Pods-GosuKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GosuKitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GosuKitTests/Pods-GosuKitTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,28 +35,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				64219525DD88749EDCC72B88 /* libPods.a in Frameworks */,
+				E8DCA3E063F175FB3CBCB161 /* libPods-GosuKitTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2673FB1FA626722CBFC062D4 /* Frameworks */ = {
+		2634BCB3E843F0110FE048E2 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				FD7B9FC7B899EFEE4EFAFECA /* libPods.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		3AB696DAF958E9E52592CCBE /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				2CBAB86C96BC7B80C3E8077A /* Pods.debug.xcconfig */,
-				8C13761233BDD33B31A084FF /* Pods.release.xcconfig */,
+				ADD7594858A08162AADB550F /* Pods-GosuKitTests.debug.xcconfig */,
+				F43FEDBFC2DAA6FCA9AF5138 /* Pods-GosuKitTests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		2EC00EE7489A382628E8065D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				583349B866678DBB86BBC9DB /* libPods-GosuKitTests.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		D430CFC91B134A87004DC04F = {
@@ -64,8 +64,8 @@
 			children = (
 				D430CFE81B134A87004DC04F /* GosuKitTests */,
 				D430CFD31B134A87004DC04F /* Products */,
-				3AB696DAF958E9E52592CCBE /* Pods */,
-				2673FB1FA626722CBFC062D4 /* Frameworks */,
+				2634BCB3E843F0110FE048E2 /* Pods */,
+				2EC00EE7489A382628E8065D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -106,12 +106,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D430CFF21B134A87004DC04F /* Build configuration list for PBXNativeTarget "GosuKitTests" */;
 			buildPhases = (
-				CFB141E53F7ECAC7A9CD7FD9 /* Check Pods Manifest.lock */,
+				2223090933995941CD4F4AE5 /* [CP] Check Pods Manifest.lock */,
 				D430CFE11B134A87004DC04F /* Sources */,
 				D430CFE21B134A87004DC04F /* Frameworks */,
 				D430CFE31B134A87004DC04F /* Resources */,
-				2304F99ADF6BCB23632FECB8 /* Copy Pods Resources */,
-				911D8DECA0BB9076ED4D63A9 /* Embed Pods Frameworks */,
+				BE2BF5681D840143C6A2722E /* [CP] Embed Pods Frameworks */,
+				4C527771D1758CF1DF2986FD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -128,7 +128,7 @@
 		D430CFCA1B134A87004DC04F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Gosu Contributors";
 				TargetAttributes = {
 					D430CFE41B134A87004DC04F = {
@@ -170,49 +170,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2304F99ADF6BCB23632FECB8 /* Copy Pods Resources */ = {
+		2223090933995941CD4F4AE5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		911D8DECA0BB9076ED4D63A9 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CFB141E53F7ECAC7A9CD7FD9 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		4C527771D1758CF1DF2986FD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GosuKitTests/Pods-GosuKitTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BE2BF5681D840143C6A2722E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GosuKitTests/Pods-GosuKitTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -243,8 +243,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
@@ -287,8 +289,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
@@ -312,7 +316,7 @@
 		};
 		D430CFF31B134A87004DC04F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2CBAB86C96BC7B80C3E8077A /* Pods.debug.xcconfig */;
+			baseConfigurationReference = ADD7594858A08162AADB550F /* Pods-GosuKitTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -328,7 +332,7 @@
 		};
 		D430CFF41B134A87004DC04F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8C13761233BDD33B31A084FF /* Pods.release.xcconfig */;
+			baseConfigurationReference = F43FEDBFC2DAA6FCA9AF5138 /* Pods-GosuKitTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COMBINE_HIDPI_IMAGES = YES;
