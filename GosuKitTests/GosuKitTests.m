@@ -26,8 +26,8 @@ static NSString *kBMPTempFilename = @"/tmp/GosuKitTests-Test.bmp";
 {
     [super setUp];
     
-    NSString *resourcePath = [[NSBundle bundleForClass:self.class] resourcePath];
-    chdir([resourcePath UTF8String]);
+    NSString *resourcePath = [NSBundle bundleForClass:self.class].resourcePath;
+    chdir(resourcePath.UTF8String);
 }
 
 - (void)tearDown
@@ -114,9 +114,9 @@ static NSString *kBMPTempFilename = @"/tmp/GosuKitTests-Test.bmp";
     XCTAssertEqualWithAccuracy(GSKGetOffsetX(0, 12345), 0, kAccuracy);
     XCTAssertEqualWithAccuracy(GSKGetOffsetY(0, 12345), -12345, kAccuracy);
     
-    NSInteger idOfC = GSKGetButtonIDFromCharacter('c');
+    NSInteger idOfC = GSKGetButtonIDFromCharacter(@"c");
     XCTAssertNotEqual(idOfC, 0);
-    XCTAssertEqual(GSKGetCharacterFromButtonID(idOfC), 'c');
+    XCTAssertEqualObjects(GSKGetCharacterFromButtonID(idOfC), @"c");
     
     XCTAssertGreaterThanOrEqual([GSKGetLanguage() length], 2);
     

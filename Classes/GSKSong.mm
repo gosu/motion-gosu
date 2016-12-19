@@ -16,7 +16,7 @@ static GSKSong *__weak currentSong = nil;
 + (GSKSong *)currentSong
 {
     GSKSong *strongCurrentSong = currentSong;
-    if (strongCurrentSong && strongCurrentSong->_song.get() == Gosu::Song::currentSong()) {
+    if (strongCurrentSong && strongCurrentSong->_song.get() == Gosu::Song::current_song()) {
         return strongCurrentSong;
     }
     else {
@@ -43,7 +43,7 @@ static GSKSong *__weak currentSong = nil;
 
 - (void)setVolume:(float)volume
 {
-    _song->changeVolume(volume);
+    _song->change_volume(volume);
 }
 
 #pragma mark - Instance methods
@@ -51,7 +51,7 @@ static GSKSong *__weak currentSong = nil;
 - (id)initWithFilename:(NSString *)filename
 {
     if ((self = [super init])) {
-        _song.reset(new Gosu::Song(Gosu::utf8ToWstring([filename UTF8String])));
+        _song.reset(new Gosu::Song(filename.UTF8String));
     }
     return self;
 }

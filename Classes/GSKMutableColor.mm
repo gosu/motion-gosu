@@ -21,37 +21,37 @@
 
 - (void)setAlpha:(NSInteger)alpha
 {
-    [self underlyingGosuColor].setAlpha(alpha);
+    [self underlyingGosuColor].set_alpha(alpha);
 }
 
 - (void)setRed:(NSInteger)red
 {
-    [self underlyingGosuColor].setRed(red);
+    [self underlyingGosuColor].set_red(red);
 }
 
 - (void)setGreen:(NSInteger)green
 {
-    [self underlyingGosuColor].setGreen(green);
+    [self underlyingGosuColor].set_green(green);
 }
 
 - (void)setBlue:(NSInteger)blue
 {
-    [self underlyingGosuColor].setBlue(blue);
+    [self underlyingGosuColor].set_blue(blue);
 }
 
 - (void)setHue:(CGFloat)hue
 {
-    [self underlyingGosuColor].setHue(hue);
+    [self underlyingGosuColor].set_hue(hue);
 }
 
 - (void)setSaturation:(CGFloat)saturation
 {
-    [self underlyingGosuColor].setSaturation(saturation);
+    [self underlyingGosuColor].set_saturation(saturation);
 }
 
 - (void)setValue:(CGFloat)value
 {
-    [self underlyingGosuColor].setValue(value);
+    [self underlyingGosuColor].set_value(value);
 }
 
 @end

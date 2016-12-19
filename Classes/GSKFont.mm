@@ -25,7 +25,7 @@
 
 - (NSString *)name
 {
-    return [[NSString alloc] initWithUTF8String:Gosu::wstringToUTF8(_font->name()).c_str()];
+    return [[NSString alloc] initWithUTF8String:_font->name().c_str()];
 }
 
 // Drawing text
@@ -35,14 +35,14 @@
 {
     NSParameterAssert(text);
     
-    _font->draw(Gosu::utf8ToWstring([text UTF8String]), x, y, z, scaleX, scaleY, (unsigned)[color unsignedIntegerValue], (Gosu::AlphaMode)alphaMode);
+    _font->draw(text.UTF8String, x, y, z, scaleX, scaleY, (unsigned)[color unsignedIntegerValue], (Gosu::AlphaMode)alphaMode);
 }
 
 - (void)drawText:(NSString *)text x:(CGFloat)x y:(CGFloat)y z:(CGFloat)z relativeX:(CGFloat)relativeX relativeY:(CGFloat)relativeY scaleX:(CGFloat)scaleX scaleY:(CGFloat)scaleY color:(id)color mode:(NSUInteger)alphaMode
 {
     NSParameterAssert(text);
     
-    _font->drawRel(Gosu::utf8ToWstring([text UTF8String]), x, y, z, relativeX, relativeY, scaleX, scaleY, (unsigned)[color unsignedIntegerValue], (Gosu::AlphaMode)alphaMode);
+    _font->draw_rel(text.UTF8String, x, y, z, relativeX, relativeY, scaleX, scaleY, (unsigned)[color unsignedIntegerValue], (Gosu::AlphaMode)alphaMode);
 }
 
 #pragma mark - Instance methods
@@ -52,7 +52,7 @@
     NSParameterAssert(name);
     
     if ((self = [super init])) {
-        _font.reset(new Gosu::Font((unsigned)height, Gosu::utf8ToWstring([name UTF8String]), (unsigned)flags));
+        _font.reset(new Gosu::Font((unsigned)height, name.UTF8String, (unsigned)flags));
     }
     return self;
 }
@@ -61,14 +61,14 @@
 {
     NSParameterAssert(image);
     
-    _font->setImage(character, [image underlyingGosuImage]);
+    _font->set_image(character, [image underlyingGosuImage]);
 }
 
 - (CGFloat)textWidth:(NSString *)text scaleX:(CGFloat)scaleX
 {
     NSParameterAssert(text);
     
-    return _font->textWidth(Gosu::utf8ToWstring([text UTF8String])) * scaleX;
+    return _font->text_width(text.UTF8String) * scaleX;
 }
 
 

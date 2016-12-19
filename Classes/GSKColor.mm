@@ -74,7 +74,7 @@
 - (id)initWithAlpha:(NSInteger)alpha hue:(CGFloat)hue saturation:(CGFloat)saturation value:(CGFloat)value
 {
     if ((self = [super init])) {
-        _color = Gosu::Color::fromAHSV(alpha, hue, saturation, value);
+        _color = Gosu::Color::from_ahsv(alpha, hue, saturation, value);
     }
     return self;
 }

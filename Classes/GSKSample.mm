@@ -23,7 +23,7 @@
     NSParameterAssert(filename);
     
     if ((self = [super init])) {
-        _sample.reset(new Gosu::Sample(Gosu::utf8ToWstring([filename UTF8String])));
+        _sample.reset(new Gosu::Sample(filename.UTF8String));
     }
     
     return self;
@@ -37,7 +37,7 @@
 
 - (GSKSampleInstance *)playWithPan:(float)pan volume:(float)volume speed:(float)speed loop:(BOOL)loop
 {
-    Gosu::SampleInstance instance = _sample->playPan(pan, volume, speed, loop);
+    Gosu::SampleInstance instance = _sample->play_pan(pan, volume, speed, loop);
     return [[GSKSampleInstance alloc] initWithSampleInstance:instance];
 }
 

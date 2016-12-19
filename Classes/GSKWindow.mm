@@ -19,12 +19,12 @@ namespace
         {
         }
         
-        void buttonDown(Gosu::Button btn) override
+        void button_down(Gosu::Button btn) override
         {
             [_window buttonDown:btn.id()];
         }
         
-        void buttonUp(Gosu::Button btn) override
+        void button_up(Gosu::Button btn) override
         {
             [_window buttonUp:btn.id()];
         }
@@ -34,12 +34,12 @@ namespace
             [_window draw];
         }
         
-        bool needsCursor() const override
+        bool needs_cursor() const override
         {
             return [_window needsCursor];
         }
         
-        bool needsRedraw() const override
+        bool needs_redraw() const override
         {
             return [_window needsRedraw];
         }
@@ -49,7 +49,7 @@ namespace
             [_window update];
         }
         
-        void touchBegan(Gosu::Touch touch) override
+        void touch_began(Gosu::Touch touch) override
         {
             GSKTouch *touchObject = [GSKTouch new];
             touchObject.x = touch.x;
@@ -59,7 +59,7 @@ namespace
             [_window touchBegan:touchObject];
         }
         
-        void touchMoved(Gosu::Touch touch) override
+        void touch_moved(Gosu::Touch touch) override
         {
             if (GSKTouch *touchObject = _touchesMap[touch.id]) {
                 touchObject.x = touch.x;
@@ -68,7 +68,7 @@ namespace
             }
         }
         
-        void touchEnded(Gosu::Touch touch) override
+        void touch_ended(Gosu::Touch touch) override
         {
             if (GSKTouch *touchObject = _touchesMap[touch.id]) {
                 _touchesMap.erase(touch.id);
@@ -79,7 +79,7 @@ namespace
             }
         }
         
-        void touchCancelled(Gosu::Touch touch) override
+        void touch_cancelled(Gosu::Touch touch) override
         {
             if (GSKTouch *touchObject = _touchesMap[touch.id]) {
                 _touchesMap.erase(touch.id);
@@ -107,12 +107,12 @@ namespace
 
 - (NSString *)caption
 {
-    return [NSString stringWithUTF8String:Gosu::wstringToUTF8(_window->caption()).c_str()];
+    return [NSString stringWithUTF8String:_window->caption().c_str()];
 }
 
 - (void)setCaption:(NSString *)caption
 {
-    _window->setCaption(Gosu::utf8ToWstring([caption UTF8String]));
+    _window->set_caption(caption.UTF8String);
 }
 
 - (BOOL)isFullscreen
@@ -127,27 +127,27 @@ namespace
 
 - (CGFloat)mouseX
 {
-    return _window->input().mouseX();
+    return _window->input().mouse_x();
 }
 
 - (void)setMouseX:(CGFloat)mouseX
 {
-    return _window->input().setMousePosition(mouseX, _window->input().mouseY());
+    return _window->input().set_mouse_position(mouseX, _window->input().mouse_y());
 }
 
 - (CGFloat)mouseY
 {
-    return _window->input().mouseY();
+    return _window->input().mouse_y();
 }
 
 - (void)setMouseY:(CGFloat)mouseY
 {
-    return _window->input().setMousePosition(_window->input().mouseX(), mouseY);
+    return _window->input().set_mouse_position(_window->input().mouse_x(), mouseY);
 }
 
 - (NSTimeInterval)updateInterval
 {
-    return _window->updateInterval();
+    return _window->update_interval();
 }
 
 - (NSInteger)width
@@ -178,12 +178,12 @@ namespace
 
 - (BOOL)needsCursor
 {
-    return _window->Gosu::Window::needsCursor();
+    return _window->Gosu::Window::needs_cursor();
 }
 
 - (BOOL)needsRedraw
 {
-    return _window->Gosu::Window::needsRedraw();
+    return _window->Gosu::Window::needs_redraw();
 }
 
 - (void)update

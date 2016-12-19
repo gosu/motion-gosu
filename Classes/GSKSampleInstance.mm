@@ -32,17 +32,17 @@
 
 - (void)setPan:(float)pan
 {
-    _instance->changePan(pan);
+    _instance->change_pan(pan);
 }
 
 - (void)setSpeed:(float)speed
 {
-    _instance->changeSpeed(speed);
+    _instance->change_speed(speed);
 }
 
 - (void)setVolume:(float)volume
 {
-    _instance->changeVolume(volume);
+    _instance->change_volume(volume);
 }
 
 #pragma mark - Instance methods
