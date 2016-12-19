@@ -117,7 +117,7 @@ namespace
 
 - (BOOL)isFullscreen
 {
-    return _window->graphics().fullscreen();
+    return _window->fullscreen();
 }
 
 - (NSInteger)height
