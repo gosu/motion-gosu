@@ -50,9 +50,7 @@
 {
     NSParameterAssert(block);
     
-    Gosu::Graphics::begin_recording();
-    block();
-    Gosu::Image macro(Gosu::Graphics::end_recording((int)width, (int)height));
+    Gosu::Image macro(Gosu::Graphics::record((int)width, (int)height, block));
     
     GSKImage *image = [self new];
     image->_image.reset(new Gosu::Image(macro));

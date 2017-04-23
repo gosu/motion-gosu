@@ -133,7 +133,6 @@
 				TargetAttributes = {
 					D430CFE41B134A87004DC04F = {
 						CreatedOnToolsVersion = 6.3.2;
-						TestTargetID = D430CFD11B134A87004DC04F;
 					};
 				};
 			};
@@ -182,7 +181,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		4C527771D1758CF1DF2986FD /* [CP] Copy Pods Resources */ = {
@@ -318,7 +317,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = ADD7594858A08162AADB550F /* Pods-GosuKitTests.debug.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
@@ -334,7 +332,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F43FEDBFC2DAA6FCA9AF5138 /* Pods-GosuKitTests.release.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",

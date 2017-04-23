@@ -60,40 +60,29 @@
 {
     NSParameterAssert(block);
     
-    Gosu::Graphics::begin_clipping(x, y, width, height);
-    block();
-    Gosu::Graphics::end_clipping();
+    Gosu::Graphics::clip_to(x, y, width, height, block);
 }
 
 + (void)performGL:(void (^)())block
 {
     NSParameterAssert(block);
     
-    Gosu::Graphics::begin_gl();
-    block();
-    Gosu::Graphics::end_gl();
+    Gosu::Graphics::gl(block);
 }
 
-/*
-  Commented out until I completely understand how to keep the block alive for
-  just the right amount of time. Is Objective-C++ really smart by default?!
- 
 + (void)scheduleGL:(void (^)())block z:(CGFloat)z
 {
     NSParameterAssert(block);
     
-    Gosu::Graphics::gl(block, z);
+    Gosu::Graphics::gl(z, block);
 }
- */
 
 + (void)rotate:(CGFloat)angle aroundX:(CGFloat)x aroundY:(CGFloat)y
        perform:(void (^)())block
 {
     NSParameterAssert(block);
     
-    Gosu::Graphics::push_transform(Gosu::rotate(angle, x, y));
-    block();
-    Gosu::Graphics::pop_transform();
+    Gosu::Graphics::transform(Gosu::rotate(angle, x, y), block);
 }
 
 + (void)scaleX:(CGFloat)scaleX y:(CGFloat)scaleY
@@ -102,9 +91,7 @@
 {
     NSParameterAssert(block);
     
-    Gosu::Graphics::push_transform(Gosu::scale(scaleX, scaleY, x, y));
-    block();
-    Gosu::Graphics::pop_transform();
+    Gosu::Graphics::transform(Gosu::scale(scaleX, scaleY, x, y), block);
 }
 
 + (void)transform:(CGFloat(*)[16])matrix
@@ -117,9 +104,7 @@
         transform[i] = (*matrix)[i];
     }
     
-    Gosu::Graphics::push_transform(transform);
-    block();
-    Gosu::Graphics::pop_transform();
+    Gosu::Graphics::transform(transform, block);
 }
 
 + (void)translateX:(CGFloat)translateX y:(CGFloat)translateY
@@ -127,9 +112,7 @@
 {
     NSParameterAssert(block);
     
-    Gosu::Graphics::push_transform(Gosu::translate(translateX, translateY));
-    block();
-    Gosu::Graphics::pop_transform();
+    Gosu::Graphics::transform(Gosu::translate(translateX, translateY), block);
 }
 
 @end
