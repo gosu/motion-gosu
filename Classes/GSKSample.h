@@ -1,7 +1,7 @@
 #import <Foundation/Foundation.h>
 
 
-@class GSKSampleInstance;
+@class GSKChannel;
 
 
 @interface GSKSample : NSObject
@@ -11,7 +11,7 @@
 
 // Instance methods
 - (id)initWithFilename:(NSString *)filename;
-- (GSKSampleInstance *)playWithVolume:(float)volume speed:(float)speed loop:(BOOL)loop;
-- (GSKSampleInstance *)playWithPan:(float)pan volume:(float)volume speed:(float)speed loop:(BOOL)loop;
+- (GSKChannel *)playWithVolume:(float)volume speed:(float)speed loop:(BOOL)loop;
+- (GSKChannel *)playWithPan:(float)pan volume:(float)volume speed:(float)speed loop:(BOOL)loop;
 
 @end

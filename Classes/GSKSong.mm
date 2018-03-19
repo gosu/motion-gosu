@@ -43,7 +43,7 @@ static GSKSong *__weak currentSong = nil;
 
 - (void)setVolume:(float)volume
 {
-    _song->change_volume(volume);
+    _song->set_volume(volume);
 }
 
 #pragma mark - Instance methods

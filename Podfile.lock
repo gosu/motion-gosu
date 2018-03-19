@@ -1,7 +1,7 @@
 PODS:
-  - Gosu (0.10.8):
-    - Gosu/Gosu (= 0.10.8)
-  - Gosu/Gosu (0.10.8)
+  - Gosu (0.13.3):
+    - Gosu/Gosu (= 0.13.3)
+  - Gosu/Gosu (0.13.3)
   - GosuKit (0.0.1)
 
 DEPENDENCIES:
@@ -15,9 +15,9 @@ EXTERNAL SOURCES:
     :path: .
 
 SPEC CHECKSUMS:
-  Gosu: 6e01e5cc4f6c2621f4b156c6e0c40fcfa6b66ef4
-  GosuKit: 36c4819c7dab02f857a74244fb2da2c59ee0902a
+  Gosu: 819a03affb57e707d414adf1a6c3a3cc6fa07253
+  GosuKit: badee5f063bdfdfe9f503c0eb8c1639aa282a0ee
 
-PODFILE CHECKSUM: c1fc1b1b29ec4735591cef32dec3a9623a85178a
+PODFILE CHECKSUM: 1a19526825f154fb77a37685f14111fb6bf0bc69
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.4.0

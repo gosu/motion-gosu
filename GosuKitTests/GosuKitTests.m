@@ -93,11 +93,11 @@ static NSString *kBMPTempFilename = @"/tmp/GosuKitTests-Test.bmp";
                          [font textWidth:@"I" scaleX:1],
                          @"W should be wider than I");
     
-    // TODO: Find a way to test draw:...
+    // TODO: Add new Font functionality as soon as it is stable: https://github.com/gosu/gosu/pull/429
     
-    GSKImage *image = [[GSKImage alloc] initWithFilename:@"test.png" tileable:NO];
-    [font setImage:image forCharacter:'X'];
-    XCTAssertEqual([font textWidth:@"X" scaleX:1], 123);
+    // GSKImage *image = [[GSKImage alloc] initWithFilename:@"test.png" tileable:NO];
+    // [font setImage:image forCharacter:'X'];
+    // XCTAssertEqual([font textWidth:@"X" scaleX:1], 123);
 }
 
 - (void)testGlobalFunctions
@@ -207,36 +207,36 @@ static NSString *kBMPTempFilename = @"/tmp/GosuKitTests-Test.bmp";
     XCTAssert(sample,
               @"should be able to load sample from relative filename");
     
-    GSKSampleInstance *instance = [sample playWithVolume:0.1 speed:3 loop:NO];
+    GSKChannel *channel = [sample playWithVolume:0.1 speed:3 loop:NO];
     
-    XCTAssert([instance isPlaying],
-              @"SampleInstance should be 'playing' after creation");
-    XCTAssertFalse([instance isPaused],
-                   @"SampleInstance should not be 'paused' after creation");
+    XCTAssert([channel isPlaying],
+              @"Channel should be 'playing' after creation");
+    XCTAssertFalse([channel isPaused],
+                   @"Channel should not be 'paused' after creation");
     
-    [instance pause];
-    XCTAssertFalse(instance.playing);
-    XCTAssert(instance.paused);
-    [instance resume];
-    XCTAssert(instance.playing);
-    XCTAssertFalse(instance.paused);
-    
-    sleep(1);
-    
-    XCTAssertFalse([instance isPlaying],
-                   @"SampleInstance should not be 'playing' anymore after one second");
-    XCTAssertFalse([instance isPaused],
-                   @"SampleInstance should not be 'paused' after playing");
-    
-    instance = [sample playWithPan:0 volume:0.1 speed:0.1 loop:YES];
+    [channel pause];
+    XCTAssertFalse(channel.playing);
+    XCTAssert(channel.paused);
+    [channel resume];
+    XCTAssert(channel.playing);
+    XCTAssertFalse(channel.paused);
     
     sleep(1);
     
-    XCTAssert([instance isPlaying],
-              @"SampleInstance should still be 'playing' because of looping");
-    [instance stop];
-    XCTAssertFalse([instance isPlaying],
-                   @"SampleInstance should stop playing immediately after stopping it");
+    XCTAssertFalse([channel isPlaying],
+                   @"Channel should not be 'playing' anymore after one second");
+    XCTAssertFalse([channel isPaused],
+                   @"Channel should not be 'paused' after playing");
+    
+    channel = [sample playWithPan:0 volume:0.1 speed:0.1 loop:YES];
+    
+    sleep(1);
+    
+    XCTAssert([channel isPlaying],
+              @"Channel should still be 'playing' because of looping");
+    [channel stop];
+    XCTAssertFalse([channel isPlaying],
+                   @"Channel should stop playing immediately after stopping it");
 }
 
 - (void)testSong

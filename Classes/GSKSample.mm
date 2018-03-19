@@ -1,12 +1,12 @@
 #import "GSKSample.h"
-#import "GSKSampleInstance.h"
+#import "GSKChannel.h"
 #import <Gosu/Gosu.hpp>
 #import <memory>
 
 
-@interface GSKSampleInstance (InternalHelpers)
+@interface GSKChannel (InternalHelpers)
 
-- (id)initWithSampleInstance:(Gosu::SampleInstance)instance;
+- (id)initWithChannel:(Gosu::Channel)instance;
 
 @end
 
@@ -29,16 +29,16 @@
     return self;
 }
 
-- (GSKSampleInstance *)playWithVolume:(float)volume speed:(float)speed loop:(BOOL)loop
+- (GSKChannel *)playWithVolume:(float)volume speed:(float)speed loop:(BOOL)loop
 {
-    Gosu::SampleInstance instance = _sample->play(volume, speed, loop);
-    return [[GSKSampleInstance alloc] initWithSampleInstance:instance];
+    Gosu::Channel channel = _sample->play(volume, speed, loop);
+    return [[GSKChannel alloc] initWithChannel:channel];
 }
 
-- (GSKSampleInstance *)playWithPan:(float)pan volume:(float)volume speed:(float)speed loop:(BOOL)loop
+- (GSKChannel *)playWithPan:(float)pan volume:(float)volume speed:(float)speed loop:(BOOL)loop
 {
-    Gosu::SampleInstance instance = _sample->play_pan(pan, volume, speed, loop);
-    return [[GSKSampleInstance alloc] initWithSampleInstance:instance];
+    Gosu::Channel channel = _sample->play_pan(pan, volume, speed, loop);
+    return [[GSKChannel alloc] initWithChannel:channel];
 }
 
 @end

@@ -1,5 +1,5 @@
 module Gosu
-  class SampleInstance < GSKSampleInstance
+  class Channel < GSKChannel
     # pan=(), speed=(), volume=() OK
     
     # pause() OK

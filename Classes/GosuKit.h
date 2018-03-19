@@ -1,10 +1,10 @@
+#import "GSKChannel.h"
 #import "GSKColor.h"
 #import "GSKFont.h"
 #import "GSKGraphics.h"
 #import "GSKImage.h"
 #import "GSKMutableColor.h"
 #import "GSKSample.h"
-#import "GSKSampleInstance.h"
 #import "GSKSong.h"
 #import "GSKWindow.h"
 

@@ -1,6 +1,6 @@
-platform :osx, '10.7'
+platform :osx, '10.9'
 
 target 'GosuKitTests' do
-  pod 'Gosu', :git => 'https://github.com/gosu/gosu.git'
+  pod 'Gosu', :path => '../Gosu'
   pod 'GosuKit', :path => '.'
 end

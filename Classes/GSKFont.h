@@ -20,7 +20,6 @@
 
 // Instance methods
 - (id)initWithHeight:(NSInteger)height fontName:(NSString *)name flags:(NSUInteger)flags;
-- (void)setImage:(GSKImage *)image forCharacter:(unichar)character;
 - (CGFloat)textWidth:(NSString *)text scaleX:(CGFloat)scaleX;
 
 @end

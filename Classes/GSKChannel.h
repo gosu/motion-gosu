@@ -1,10 +1,10 @@
 #import <Foundation/Foundation.h>
 
 
-@interface GSKSampleInstance : NSObject
+@interface GSKChannel : NSObject
 
 // This interface is organised as in Gosu's Ruby reference:
-// https://www.libgosu.org/rdoc/Gosu/SampleInstance.html
+// https://www.libgosu.org/rdoc/Gosu/Channel.html
 
 // Properties
 

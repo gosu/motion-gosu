@@ -57,13 +57,6 @@
     return self;
 }
 
-- (void)setImage:(GSKImage *)image forCharacter:(unichar)character
-{
-    NSParameterAssert(image);
-    
-    _font->set_image(character, [image underlyingGosuImage]);
-}
-
 - (CGFloat)textWidth:(NSString *)text scaleX:(CGFloat)scaleX
 {
     NSParameterAssert(text);
