@@ -11,9 +11,11 @@ module Gosu
     def mouse_y; mouseY; end
     def mouse_y=(y); setMouseY(y); end
     
-    # TODO: text_input
+    def text_input; textInput; end
+    def text_input=(ti); setTextInput(ti); end
 
     def update_interval; updateInterval; end
+    def update_interval=(ui); setUpdateInterval(ui); end
     
     # width() OK
     
@@ -77,5 +79,9 @@ module Gosu
     def touchCancelled(touch)
       touch_cancelled(touch)
     end
+    
+    # touches() OK
+    
+    def uikit_window; self.UIWindow(); end
   end
 end
