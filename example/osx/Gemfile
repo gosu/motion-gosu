@@ -1,0 +1,7 @@
+source "https://rubygems.org"
+
+gem "rake"
+gem "json"
+# Add your dependencies here:
+gem "motion-cocoapods"
+gem "motion-gosu", git: "https://github.com/gosu/motion-gosu"

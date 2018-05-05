@@ -1,0 +1,31 @@
+$:.unshift("/Library/RubyMotion/lib")
+$:.unshift("~/.rubymotion/rubymotion-templates")
+require "motion/project/template/ios"
+
+require "motion-cocoapods"
+require "motion-gosu"
+
+begin
+  require "bundler"
+  Bundler.require
+rescue LoadError
+end
+
+Motion::Project::App.setup do |app|
+  # Use `rake config" to see complete project settings.
+  app.name = "motion-gosu"
+  app.identifier = "com.github.gosu.motion-gosu-example"
+  
+  app.device_family = [:ipad]
+  
+  app.provisioning_profile = "../development.mobileprovision"
+    
+  app.files << Dir.glob("../src/*.rb")
+  
+  # These dependencies can be installed using motion-cocoapods.
+  # $ bundle exec rake pod:update
+  app.pods do
+    pod "Gosu", git: "https://github.com/gosu/gosu"
+    pod "GosuKit", git: "https://github.com/gosu/motion-gosu"
+  end
+end
