@@ -3,6 +3,8 @@ module Gosu
     def caret_pos; caretPos; end
     def caret_pos=(cp); setCaretPos(cp); end
     
+    def initialize; init; end
+    
     def selection_start; selectionStart; end
     def selection_start=(ss); setSelectionStart(ss); end
     
