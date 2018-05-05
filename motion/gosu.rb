@@ -183,7 +183,7 @@ module Gosu
   KB_APOSTROPHE = 52
   KB_COMMA = 54
   KB_PERIOD = 55
-  KB_SLASH = 49
+  KB_SLASH = 56
   KB_A = 4
   KB_B = 5
   KB_C = 6
