@@ -10,12 +10,12 @@ namespace
     class CallbackForwardingWindow : public Gosu::Window
     {
         GSKWindow *const _window;
-        std::map<void *, GSKTouch *> _touchesMap;
-        NSMutableArray<GSKTouch *> *_touchesArray = [NSMutableArray new];
+        std::map<void *, GSKTouch *> _touches_map;
+        NSMutableArray<GSKTouch *> *_touches_array = [NSMutableArray new];
         
     public:
-        CallbackForwardingWindow(GSKWindow *window, unsigned width, unsigned height, bool fullscreen, double updateInterval)
-        : Gosu::Window(width, height, fullscreen, updateInterval), _window(window)
+        CallbackForwardingWindow(GSKWindow *window, unsigned width, unsigned height, bool fullscreen, double update_interval)
+        : Gosu::Window(width, height, fullscreen, update_interval), _window(window)
         {
         }
         
@@ -54,14 +54,14 @@ namespace
             GSKTouch *touchObject = [GSKTouch new];
             touchObject.x = touch.x;
             touchObject.y = touch.y;
-            _touchesMap[touch.id] = touchObject;
-            [_touchesArray addObject:touchObject];
+            _touches_map[touch.id] = touchObject;
+            [_touches_array addObject:touchObject];
             [_window touchBegan:touchObject];
         }
         
         void touch_moved(Gosu::Touch touch) override
         {
-            if (GSKTouch *touchObject = _touchesMap[touch.id]) {
+            if (GSKTouch *touchObject = _touches_map[touch.id]) {
                 touchObject.x = touch.x;
                 touchObject.y = touch.y;
                 [_window touchMoved:touchObject];
@@ -70,9 +70,9 @@ namespace
         
         void touch_ended(Gosu::Touch touch) override
         {
-            if (GSKTouch *touchObject = _touchesMap[touch.id]) {
-                _touchesMap.erase(touch.id);
-                [_touchesArray removeObject:touchObject];
+            if (GSKTouch *touchObject = _touches_map[touch.id]) {
+                _touches_map.erase(touch.id);
+                [_touches_array removeObject:touchObject];
                 touchObject.x = touch.x;
                 touchObject.y = touch.y;
                 [_window touchEnded:touchObject];
@@ -81,9 +81,9 @@ namespace
         
         void touch_cancelled(Gosu::Touch touch) override
         {
-            if (GSKTouch *touchObject = _touchesMap[touch.id]) {
-                _touchesMap.erase(touch.id);
-                [_touchesArray removeObject:touchObject];
+            if (GSKTouch *touchObject = _touches_map[touch.id]) {
+                _touches_map.erase(touch.id);
+                [_touches_array removeObject:touchObject];
                 touchObject.x = touch.x;
                 touchObject.y = touch.y;
                 [_window touchCancelled:touchObject];
@@ -92,7 +92,7 @@ namespace
         
         NSArray<GSKTouch *> *touches() const
         {
-            return _touchesArray;
+            return _touches_array;
         }
     };
 }
@@ -158,7 +158,7 @@ namespace
 #if TARGET_IPHONE_SIMULATOR || TARGET_OS_IPHONE
 - (UIWindow *)UIWindow
 {
-    return (__bridge UIWindow *)_window->UIWindow();
+    return (__bridge UIWindow *)_window->ui_window();
 }
 #endif
 
@@ -217,7 +217,7 @@ namespace
 
 - (id)initWithWidth:(NSInteger)width height:(NSInteger)height fullscreen:(BOOL)fullscreen updateInterval:(NSTimeInterval)updateInterval
 {
-    if ((self = [super init])) {
+    if (self = [super init]) {
         _window.reset(new CallbackForwardingWindow(self, (unsigned)width, (unsigned)height, fullscreen, updateInterval));
     }
     return self;

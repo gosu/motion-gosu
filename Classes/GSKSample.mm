@@ -22,7 +22,7 @@
 {
     NSParameterAssert(filename);
     
-    if ((self = [super init])) {
+    if (self = [super init]) {
         _sample.reset(new Gosu::Sample(filename.UTF8String));
     }
     

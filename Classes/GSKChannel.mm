@@ -12,7 +12,7 @@
 
 - (id)initWithChannel:(Gosu::Channel)channel
 {
-    if ((self = [super init])) {
+    if (self = [super init]) {
         _channel.reset(new Gosu::Channel(channel));
     }
     return self;

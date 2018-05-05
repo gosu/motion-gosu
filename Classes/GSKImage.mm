@@ -76,7 +76,7 @@
 {
     NSParameterAssert(filename);
     
-    if ((self = [super init])) {
+    if (self = [super init]) {
         _image.reset(new Gosu::Image(filename.UTF8String, tileable ? Gosu::IF_TILEABLE : 0));
     }
     return self;

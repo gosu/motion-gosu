@@ -28,8 +28,7 @@
     return [[NSString alloc] initWithUTF8String:_font->name().c_str()];
 }
 
-// Drawing text
-
+#pragma mark - Drawing text
 
 - (void)drawText:(NSString *)text x:(CGFloat)x y:(CGFloat)y z:(CGFloat)z scaleX:(CGFloat)scaleX scaleY:(CGFloat)scaleY color:(id)color mode:(NSUInteger)alphaMode
 {
@@ -51,7 +50,7 @@
 {
     NSParameterAssert(name);
     
-    if ((self = [super init])) {
+    if (self = [super init]) {
         _font.reset(new Gosu::Font((unsigned)height, name.UTF8String, (unsigned)flags));
     }
     return self;
@@ -63,6 +62,5 @@
     
     return _font->text_width(text.UTF8String) * scaleX;
 }
-
 
 @end

@@ -6,7 +6,7 @@
 
 @interface GSKSample : NSObject
 
-// This interface is organised as in Gosu's Ruby reference:
+// This interface is organized as in Gosu's Ruby reference:
 // https://www.libgosu.org/rdoc/Gosu/Sample.html
 
 // Instance methods

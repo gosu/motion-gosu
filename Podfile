@@ -1,6 +1,6 @@
-platform :osx, '10.9'
+platform :osx, "10.9"
 
-target 'GosuKitTests' do
-  pod 'Gosu', :path => '../Gosu'
-  pod 'GosuKit', :path => '.'
+target "GosuKitTests" do
+  pod "Gosu", path: "../Gosu"
+  pod "GosuKit", path: "."
 end

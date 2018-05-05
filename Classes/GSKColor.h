@@ -3,7 +3,7 @@
 
 @interface GSKColor : NSObject <NSCopying, NSMutableCopying>
 
-// This interface is organised as in Gosu's Ruby reference:
+// This interface is organized as in Gosu's Ruby reference:
 // https://www.libgosu.org/rdoc/Gosu/Color.html
 
 // Properties

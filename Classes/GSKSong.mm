@@ -50,7 +50,7 @@ static GSKSong *__weak currentSong = nil;
 
 - (id)initWithFilename:(NSString *)filename
 {
-    if ((self = [super init])) {
+    if (self = [super init]) {
         _song.reset(new Gosu::Song(filename.UTF8String));
     }
     return self;

@@ -49,7 +49,7 @@
 
 - (id)initWithARGB:(NSUInteger)argb
 {
-    if ((self = [super init])) {
+    if (self = [super init]) {
         _color = (unsigned)argb;
     }
     return self;
@@ -57,7 +57,7 @@
 
 - (id)initWithRGBA:(NSUInteger)rgba
 {
-    if ((self = [super init])) {
+    if (self = [super init]) {
         _color = Gosu::Color(((rgba >> 8) & 0xffffff) | ((rgba << 24) & 0xff000000));
     }
     return self;
@@ -65,7 +65,7 @@
 
 - (id)initWithAlpha:(NSInteger)alpha red:(NSInteger)red green:(NSInteger)green blue:(NSInteger)blue
 {
-    if ((self = [super init])) {
+    if (self = [super init]) {
         _color = Gosu::Color(alpha, red, green, blue);
     }
     return self;
@@ -73,7 +73,7 @@
 
 - (id)initWithAlpha:(NSInteger)alpha hue:(CGFloat)hue saturation:(CGFloat)saturation value:(CGFloat)value
 {
-    if ((self = [super init])) {
+    if (self = [super init]) {
         _color = Gosu::Color::from_ahsv(alpha, hue, saturation, value);
     }
     return self;

@@ -1,7 +1,9 @@
 PODS:
-  - Gosu (0.13.3):
-    - Gosu/Gosu (= 0.13.3)
-  - Gosu/Gosu (0.13.3)
+  - Gosu (0.13.3.1):
+    - Gosu/Gosu (= 0.13.3.1)
+  - Gosu/C (0.13.3.1)
+  - Gosu/Gosu (0.13.3.1):
+    - Gosu/C
   - GosuKit (0.0.1)
 
 DEPENDENCIES:
@@ -10,14 +12,14 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   Gosu:
-    :path: ../Gosu
+    :path: "../Gosu"
   GosuKit:
-    :path: .
+    :path: "."
 
 SPEC CHECKSUMS:
-  Gosu: 819a03affb57e707d414adf1a6c3a3cc6fa07253
-  GosuKit: badee5f063bdfdfe9f503c0eb8c1639aa282a0ee
+  Gosu: cea9fed485e6062014ff3bbad5986677f933ba98
+  GosuKit: b57c76624b4e79f5b77a6b6c95578289fee360ba
 
 PODFILE CHECKSUM: 1a19526825f154fb77a37685f14111fb6bf0bc69
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.0
