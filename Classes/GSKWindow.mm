@@ -172,7 +172,7 @@ namespace
 #if TARGET_IPHONE_SIMULATOR || TARGET_OS_IPHONE
 - (UIWindow *)UIWindow
 {
-    return (__bridge UIWindow *)_window->ui_window();
+    return (__bridge UIWindow *)_window->uikit_window();
 }
 #endif
 
