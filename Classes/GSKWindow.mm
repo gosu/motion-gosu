@@ -1,8 +1,16 @@
 #import "GSKWindow.h"
+#import "GSKTextInput.h"
 #import "GSKTouch.h"
 #import <Gosu/Gosu.hpp>
 #import <map>
 #import <memory>
+
+
+@interface GSKTextInput (InternalHelpers)
+
+- (Gosu::TextInput &)underlyingGosuTextInput;
+
+@end
 
 
 namespace
@@ -143,6 +151,12 @@ namespace
 - (void)setMouseY:(CGFloat)mouseY
 {
     return _window->input().set_mouse_position(_window->input().mouse_x(), mouseY);
+}
+
+- (void)setTextInput:(GSKTextInput *)textInput
+{
+    _window->input().set_text_input(&textInput.underlyingGosuTextInput);
+    _textInput = textInput;
 }
 
 - (NSTimeInterval)updateInterval

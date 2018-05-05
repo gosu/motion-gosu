@@ -4,6 +4,7 @@
 
 
 @class GSKTouch;
+@class GSKTextInput;
 
 
 @interface GSKWindow : NSObject
@@ -17,6 +18,7 @@
 @property (nonatomic, readonly) NSInteger height;
 @property (nonatomic) CGFloat mouseX;
 @property (nonatomic) CGFloat mouseY;
+@property (nonatomic) GSKTextInput *textInput;
 @property (nonatomic, readonly) NSTimeInterval updateInterval;
 @property (nonatomic, readonly) NSInteger width;
 
