@@ -9,8 +9,8 @@
                   toX:(CGFloat)x2 y:(CGFloat)y2 color:(id)color2
                     z:(CGFloat)z mode:(NSUInteger)alphaMode
 {
-    Gosu::Graphics::draw_line(x1, y1, (unsigned)[color1 unsignedIntegerValue],
-                              x2, y2, (unsigned)[color2 unsignedIntegerValue],
+    Gosu::Graphics::draw_line(x1, y1, [color1 unsignedIntValue],
+                              x2, y2, [color2 unsignedIntValue],
                               z, (Gosu::AlphaMode)alphaMode);
 }
 
@@ -19,9 +19,9 @@
                         x:(CGFloat)x3 y:(CGFloat)y3 color:(id)color3
                         z:(CGFloat)z mode:(NSUInteger)alphaMode
 {
-    Gosu::Graphics::draw_triangle(x1, y1, (unsigned)[color1 unsignedIntegerValue],
-                                  x2, y2, (unsigned)[color2 unsignedIntegerValue],
-                                  x3, y3, (unsigned)[color3 unsignedIntegerValue],
+    Gosu::Graphics::draw_triangle(x1, y1, [color1 unsignedIntValue],
+                                  x2, y2, [color2 unsignedIntValue],
+                                  x3, y3, [color3 unsignedIntValue],
                                   z, (Gosu::AlphaMode)alphaMode);
 }
 
@@ -31,10 +31,10 @@
                     x:(CGFloat)x4 y:(CGFloat)y4 color:(id)color4
                     z:(CGFloat)z mode:(NSUInteger)alphaMode
 {
-    Gosu::Graphics::draw_quad(x1, y1, (unsigned)[color1 unsignedIntegerValue],
-                              x2, y2, (unsigned)[color2 unsignedIntegerValue],
-                              x3, y3, (unsigned)[color3 unsignedIntegerValue],
-                              x4, y4, (unsigned)[color4 unsignedIntegerValue],
+    Gosu::Graphics::draw_quad(x1, y1, [color1 unsignedIntValue],
+                              x2, y2, [color2 unsignedIntValue],
+                              x3, y3, [color3 unsignedIntValue],
+                              x4, y4, [color4 unsignedIntValue],
                               z, (Gosu::AlphaMode)alphaMode);
 }
 
@@ -42,10 +42,10 @@
               width:(CGFloat)width height:(CGFloat)height color:(id)color
                   z:(CGFloat)z mode:(NSUInteger)alphaMode
 {
-    Gosu::Graphics::draw_quad(x, y, (unsigned)[color unsignedIntegerValue],
-                              x + width, y, (unsigned)[color unsignedIntegerValue],
-                              x, y + height, (unsigned)[color unsignedIntegerValue],
-                              x + width, y + height, (unsigned)[color unsignedIntegerValue],
+    Gosu::Graphics::draw_quad(x, y, [color unsignedIntValue],
+                              x + width, y, [color unsignedIntValue],
+                              x, y + height, [color unsignedIntValue],
+                              x + width, y + height, [color unsignedIntValue],
                               z, (Gosu::AlphaMode)alphaMode);
 }
 

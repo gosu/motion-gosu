@@ -34,14 +34,14 @@
 {
     NSParameterAssert(text);
     
-    _font->draw(text.UTF8String, x, y, z, scaleX, scaleY, (unsigned)[color unsignedIntegerValue], (Gosu::AlphaMode)alphaMode);
+    _font->draw_markup(text.UTF8String, x, y, z, scaleX, scaleY, [color unsignedIntValue], (Gosu::AlphaMode)alphaMode);
 }
 
 - (void)drawText:(NSString *)text x:(CGFloat)x y:(CGFloat)y z:(CGFloat)z relativeX:(CGFloat)relativeX relativeY:(CGFloat)relativeY scaleX:(CGFloat)scaleX scaleY:(CGFloat)scaleY color:(id)color mode:(NSUInteger)alphaMode
 {
     NSParameterAssert(text);
     
-    _font->draw_rel(text.UTF8String, x, y, z, relativeX, relativeY, scaleX, scaleY, (unsigned)[color unsignedIntegerValue], (Gosu::AlphaMode)alphaMode);
+    _font->draw_markup_rel(text.UTF8String, x, y, z, relativeX, relativeY, scaleX, scaleY, [color unsignedIntValue], (Gosu::AlphaMode)alphaMode);
 }
 
 #pragma mark - Instance methods

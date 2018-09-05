@@ -88,7 +88,7 @@
 
 #pragma mark - Internal helpers
 
-- (NSUInteger)unsignedIntegerValue
+- (NSUInteger)unsignedIntValue
 {
     return _color.argb();
 }
