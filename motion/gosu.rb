@@ -65,11 +65,11 @@ module Gosu
     GSKGetAngleDifference(angle1, angle2)
   end
   
-  def self.available_height
+  def self.available_height(window = nil)
     GSKGetAvailableHeight()
   end
   
-  def self.available_width
+  def self.available_width(window = nil)
     GSKGetAvailableWidth()
   end
   
@@ -117,11 +117,11 @@ module Gosu
     GSKRandom(min, max)
   end
   
-  def self.screen_height
+  def self.screen_height(window = nil)
     GSKGetScreenHeight()
   end
   
-  def self.screen_width
+  def self.screen_width(window = nil)
     GSKGetScreenWidth()
   end
   
