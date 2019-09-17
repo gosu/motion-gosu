@@ -15,7 +15,9 @@ module Gosu
         spacing: options[:spacing] || 0, align: TEXT_ALIGN_MAP[options[:align] || :left])
     end
     
-    alias_method :from_markup, :from_text
+    def self.from_markup(*args)
+      self.from_text(*args)
+    end
 
     def self.load_tiles(source, tile_width, tile_height, options = {})
       # TODO - check whether this returns GSKImage or Gosu::Image
